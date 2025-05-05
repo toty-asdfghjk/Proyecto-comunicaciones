@@ -1,0 +1,20 @@
+{
+    "clientes": {
+        "gonzalo@gmail.com": {
+            "pass": "1234",
+            "nombre": "Gonzalo Alegría",
+            "historial": []
+        },
+        "ariel@gmail.com": {
+            "pass": "5678",
+            "nombre": "Ariel Nuñez",
+            "historial": []
+        }
+    },
+    "ejecutivos": {
+        "vincko@gmail.com": {
+            "pass": "abcd",
+            "nombre": "Vincko Fabres"
+        }
+    }
+}
