@@ -3,149 +3,145 @@ import threading
 import json
 from datetime import datetime
 
-#Se configura el servidor para que corra localmente
+# Configuración del servidor
 HOST = "127.0.0.1"
 PORT = 5555
 
-bases = open("Data Base.json", "r")
-dataBase = json.load(bases)
+# Carga de la base de datos
+with open("Data Base.json", "r") as bases:
+    dataBase = json.load(bases)
 
-#Se crea el socket y se instancia en las variables anteriores
+# Guardar base de datos después de cambios
+def guardar_base():
+    with open("Data Base.json", "w") as archivo:
+        json.dump(dataBase, archivo, indent=4)
+
+# Función principal del servidor
 def revivan_el_server():
     servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     servidor.bind((HOST, PORT))
-    servidor.listen(15) #Capacidad de conexiones (creo)
+    servidor.listen(15)
     print("[SERVIDOR] Esperando conexiones...")
 
     while True:
         conexion, direccion = servidor.accept()
-        thread = threading.Thread(target=clientesConect, args=(conexion, direccion)) #para contar usuarios
+        thread = threading.Thread(target=clientesConect, args=(conexion, direccion))
         thread.start()
-        print(f"[SERVIDOR] Conexiones activas: {threading.active_count() - 1}") #contador de usuarios conectados
+        print(f"[SERVIDOR] Conexiones activas: {threading.active_count() - 1}")
 
-#Funcion para manejar a los clientes (ejecutivos tambien) con thread
+# Manejo de cliente
 def clientesConect(conexion, direccion):
     print(f"[NUEVA CONEXIÓN] {direccion} conectado.")
 
     try:
-        #Bienvenida + login
         conexion.send(("¡Bienvenido a la plataforma de servicio al cliente de la tienda TC5G! \n"
-                      "Para autenticarse ingrese su mail y contraseña: \n"
-                      "Correo: ").encode()) #envio de mensaje al usuario
+                       "Para autenticarse ingrese su mail y contraseña: \n"
+                       "\nIngrese su correo: ").encode())
         correo = conexion.recv(1024).decode().strip()
-        conexion.send("Ingrese su contraseña: ".encode()) #envio de mensaje al usuario
+        conexion.send("Ingrese su contraseña: ".encode())
         password = conexion.recv(1024).decode().strip()
 
-        typeUser = None #para guardar si el usuario es cliente o ejecutivo
-        Nombre = None #para guardar el nombre del usuario
+        typeUser = None
+        nombre = None
 
-        #Proceso de validacion de credenciales
-        if correo in dataBase["clientes"]: #correo encontrado en la base de datos de usuario
-            if dataBase["clientes"][correo]["pass"] == password: #contraseña correcta
-                typeUser = "cliente" #usuario es cliente
-                nombre = dataBase["clientes"][correo]["nombre"] #se guarda el nombre para referirse a el usuario
+        if correo in dataBase["clientes"]:
+            if dataBase["clientes"][correo]["pass"] == password:
+                typeUser = "cliente"
+                nombre = dataBase["clientes"][correo]["nombre"]
 
+        elif correo in dataBase["ejecutivos"]:
+            if dataBase["ejecutivos"][correo]["pass"] == password:
+                typeUser = "ejecutivo"
+                nombre = dataBase["ejecutivos"][correo]["nombre"]
 
-        elif correo in dataBase["ejecutivos"]: #correo encontrado en la base de datos de ejecutivos
-            if dataBase["ejecutivos"][correo]["pass"] == password: #contraseña correcta
-                typeUser = "ejecutivo" #usuario es ejecutivo
-                nombre = dataBase["ejecutivos"][correo]["nombre"] #se guarda el nombre para referirse a el usuario
-        
-        
-
-        #Si paso las credenciales, se le asigna su respectivo menu
-        if typeUser == "cliente": #usuario es cliente (requiere menu para clientes)
-            conexion.send(f"Asistente: ¡Bienvenido {nombre}! ¿En que te podemos ayudar?".encode()) #envio de mensaje al usuario
-            while True
-                #---------Menu cliente---------#
-                menu = ("[1] Cambio de contraseña. \n"
-                        "[2] Historial de operaciones. \n"
-                        "[3] Catalogo de productos / Comprar productos. \n"
-                        "[4] Solicitar devolucion. \n"
-                        "[5] Confirmar envio. \n"
-                        "[6] Contactarse con un ejecutivo. \n"
-                        "[7] Salir \n"
-                        "Ingrese un numero: \n")
-                conexion.send(menu.encode()) #envio de mensaje al usuario
-                opcion = conexion.recv(1024).decode().strip() #mensaje desde el usuario
-
-                #Desafio mayormente en opcion 2 (mostrar y seleccionar una compra del historial), 
-                #opcion 3 (registrar bien el formato de compra y armar la lista de productos en database)
-                #opcion 6 (armar sala de chat con ejecutivo)
+        if typeUser == "cliente":
+            conexion.send(f"Asistente: ¡Bienvenido {nombre}! ¿En qué te podemos ayudar?\n".encode())
+            while True:
+                menu = (
+                    "[1] Cambio de contraseña.\n"
+                    "[2] Historial de operaciones.\n"
+                    "[3] Catálogo de productos / Comprar productos.\n"
+                    "[4] Solicitar devolución.\n"
+                    "[5] Confirmar envío.\n"
+                    "[6] Contactarse con un ejecutivo.\n"
+                    "[7] Salir\n"
+                    "Ingrese un número:\n")
+                conexion.send(menu.encode())
+                opcion = conexion.recv(1024).decode().strip()
 
                 if opcion == "1":
-                    conexion.send("Ingrese nueva contraseña: ".encode()) #envio de mensaje al usuario
-                    newPassword =conexion.recv(1024).decode().strip() #mensaje desde el usuario
-                    conexion.send("Ingrese su nueva contraseña otra vez: ".encode()) #envio de mensaje al usuario
-                    newPassword2 =conexion.recv(1024).decode().strip() #mensaje desde el usuario
+                    conexion.send("Ingrese nueva contraseña: ".encode())
+                    newPassword = conexion.recv(1024).decode().strip()
+                    conexion.send("Ingrese su nueva contraseña otra vez: ".encode())
+                    newPassword2 = conexion.recv(1024).decode().strip()
                     if newPassword == newPassword2:
-                        dataBase["clientes"][correo]["pass"] = newPassword #se actualiza la contraseña
-                        conexion.send("Contraseña actualizada exitosamente. \n".encode()) #envio de mensaje al usuario
+                        dataBase["clientes"][correo]["pass"] = newPassword
+                        guardar_base()
+                        conexion.send("Contraseña actualizada exitosamente.\n".encode())
                     else:
-                        conexion.send("Las contraseñas no coinciden. Se le regresara al menu. \n".encode()) #envio de mensaje al usuario
+                        conexion.send("Las contraseñas no coinciden. Se le regresará al menú.\n".encode())
 
                 elif opcion == "2":
-                    historial = dataBase["clientes"][correo].get("compras", []) #se obtiene la lista del historial
+                    historial = dataBase["clientes"][correo].get("compras", [])
                     if not historial:
-                        conexion.send("No hay operaciones registradas. \n".encode()) #envio de mensaje al usuario
+                        conexion.send("No hay operaciones registradas.\n".encode())
                     else:
-                        compras = "\n".join(historial) #se separa la lista del historial
-                        conexion.send(f"Compras: \n{compras}\n".encode()) #envio de mensaje al usuario
+                        compras = "\n".join(historial)
+                        conexion.send(f"Compras:\n{compras}\n".encode())
 
                 elif opcion == "3":
-                    productos = dataBase.get("productos", {}) #se obtienen los productos
+                    productos = dataBase.get("productos", {})
                     if not productos:
-                        conexion.send("No hay productos disponibles en este momento. \n".encode()) #envio de mensaje al usuario
+                        conexion.send("No hay productos disponibles en este momento.\n".encode())
                     else:
-                        lista = "\n".join([f"prodID: {info["nombre"]} - {info["precio"]}" for prodID, info in productos.items()]) #se separa la lista de los productos
-                        conexion.send(f"Productos disponibles: \n{lista} \n","Seleccione ID del producto que desea: ".encode()) #envio de mensaje al usuario
-                        prodID = conexion.recv(1024).decode().strip() #mensaje desde el usuario
+                        lista = "\n".join(
+                            [f"prodID: {prodID} - {info['nombre']} (${info['precio']})" for prodID, info in productos.items()]
+                        )
+                        conexion.send(f"Productos disponibles:\n{lista}\nSeleccione ID del producto que desea:\n".encode())
+                        prodID = conexion.recv(1024).decode().strip()
                         if prodID in productos:
-                            fecha = datetime.now().strftime("%d/%m/%Y $H:$M") #formato a la fecha
-                            producto = productos[prodID]["nombre"] #se obtiene el producto
-                            registro = f"{producto}" ({fecha}) #se guarda el formato de guardado del producto
-                            dataBase["clientes"][correo].setdefault("compras", []).append(registro) #se añade a la lista de compras
+                            fecha = datetime.now().strftime("%d/%m/%Y %H:%M")
+                            producto = productos[prodID]["nombre"]
+                            registro = f"{producto} ({fecha})"
+                            dataBase["clientes"][correo].setdefault("compras", []).append(registro)
+                            guardar_base()
+                            conexion.send("Compra registrada exitosamente.\n".encode())
                         else:
-                            conexion.send("ID invalido. \n".encode()) #envio de mensaje al usuario
+                            conexion.send("ID inválido.\n".encode())
 
                 elif opcion == "4":
-                    conexion.send("Ingrese ID del producto a devolver: \n".encode()) #envio de mensaje al usuario
-                    prodID = conexion.recv(1024).decode().strip() #mensaje desde el usuario
-                    conexion.send("Motivo de la devolucion: \n".encode()) #envio de mensaje al usuario
-                    motivo = conexion.recv(1024).decode().strip()  #mensaje desde el usuario
-                    conexion.send("Solicitud de devolucion registrada. Lamentamos los inconvenientes 😔. \n".encode()) #envio de mensaje al usuario
+                    conexion.send("Ingrese ID del producto a devolver:\n".encode())
+                    prodID = conexion.recv(1024).decode().strip()
+                    conexion.send("Motivo de la devolución:\n".encode())
+                    motivo = conexion.recv(1024).decode().strip()
+                    conexion.send("Solicitud de devolución registrada. Lamentamos los inconvenientes 😔.\n".encode())
 
                 elif opcion == "5":
-                    conexion.send("Confirmacion de envio recibida. ¡Gracias por comprar con nosotros! \n".encode()) #envio de mensaje al usuario
+                    conexion.send("Confirmación de envío recibida. ¡Gracias por comprar con nosotros!\n".encode())
 
                 elif opcion == "6":
-                    conexion.send("Un ejecutivo se comunicara contigo pronto, por favor ten paciencia. \n".encode()) #envio de mensaje al usuario
-                    #Implementar chat con ejecutivo posteriormente
+                    conexion.send("Un ejecutivo se comunicará contigo pronto. Por favor ten paciencia.\n".encode())
 
                 elif opcion == "7":
-                    conexion.send("Gracias por usar la plataforma. ¡Vuelve luego!  \n".encode()) #envio de mensaje al usuario
+                    conexion.send("Gracias por usar la plataforma. ¡Vuelve luego!\n".encode())
+                    break
 
                 else:
-                    conexion.send("Opcion invalida. Intente nuevamente. \n".encode()) #envio de mensaje al usuario
+                    conexion.send("Opción inválida. Intente nuevamente.\n".encode())
 
+        elif typeUser == "ejecutivo":
+            conexion.send(f"¡Bienvenido {nombre}! En este momento hay {threading.active_count() - 2} clientes conectados.\n".encode())
 
+        else:
+            conexion.send("Credenciales erróneas. Desconectando...\n".encode())
 
+    except Exception as e:
+        print(f"[ERROR] {direccion} -> {e}")
+    finally:
+        conexion.close()
+        print(f"[DESCONECTADO] {direccion} se ha desconectado.")
 
-
-        elif typeUser == "ejecutivo": #usuario es ejecutivo (requiere menu para ejecutivo)
-            conexion.send(f"¡Bienvenido {nombre}! en este momento hay N_clientes conectados.".encode()) #envio de mensaje al usuario
-
-
-
-
-
-
-        elif typeUser == None:
-            conexion.send("Credenciales erroneas. Desconectando...".encode()) #envio de mensaje al usuario
-
-            conexion.close()
-
-        """
+"""
         #No se si esta parte sera necesaria a futuro
         while True:
             data = conexion.recv(1024).decode("utf-8")
@@ -156,10 +152,7 @@ def clientesConect(conexion, direccion):
             print(f"[{direccion}] {data}")
         """
 
-    except:
-        conexion.close()
-        print(f"[DESCONECTADO] {direccion} se ha desconectado.")
 
-# Arrancar el servidor
+# Ejecutar el servidor
 if __name__ == "__main__":
     revivan_el_server()
