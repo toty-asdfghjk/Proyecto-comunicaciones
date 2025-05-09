@@ -2,164 +2,361 @@ import socket
 import threading
 import json
 from datetime import datetime
+import multiprocessing
 
-#Se configura el servidor para que corra localmente
 HOST = "127.0.0.1"
 PORT = 5555
 
-bases = open("Data Base.json", "r")
-dataBase = json.load(bases)
 
-#Se crea el socket y se instancia en las variables anteriores
-def revivan_el_server():
-    servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    servidor.bind((HOST, PORT))
-    servidor.listen(15) #Capacidad de conexiones (creo)
-    print("[SERVIDOR] Esperando conexiones...")
+lock = threading.Lock()
+clientes_esperando = []
+emparejamientos = {}
+clientes_activos = {}
 
-    while True:
-        conexion, direccion = servidor.accept()
-        thread = threading.Thread(target=clientesConect, args=(conexion, direccion)) #para contar usuarios
-        thread.start()
-        print(f"[SERVIDOR] Conexiones activas: {threading.active_count() - 1}") #contador de usuarios conectados
+Filepath = "Data Base.json"
 
-#Funcion para manejar a los clientes (ejecutivos tambien) con thread
-def clientesConect(conexion, direccion):
+procesos = []
+
+with open("Data Base.json", "r", encoding="utf-8") as archivo:
+    dataBase = json.load(archivo)
+
+def guardar_base_datos():
+    with open("Data Base.json", "w", encoding="utf-8") as archivo:
+        json.dump(dataBase, archivo, indent=4, ensure_ascii=False)
+
+def manejar_usuario(conn, direccion):
     print(f"[NUEVA CONEXIÓN] {direccion} conectado.")
-
     try:
-        #Bienvenida + login
-        conexion.send(("¡Bienvenido a la plataforma de servicio al cliente de la tienda TC5G! \n"
-                      "Para autenticarse ingrese su mail y contraseña: \n"
-                      "Correo: ").encode()) #envio de mensaje al usuario
-        correo = conexion.recv(1024).decode().strip()
-        conexion.send("Ingrese su contraseña: ".encode()) #envio de mensaje al usuario
-        password = conexion.recv(1024).decode().strip()
+        conn.send("¡Bienvenido a la tienda TC5G!\n Por favor ingrese su correo: ".encode())
+        correo = conn.recv(1024).decode().strip()
 
-        typeUser = None #para guardar si el usuario es cliente o ejecutivo
-        Nombre = None #para guardar el nombre del usuario
-
-        #Proceso de validacion de credenciales
-        if correo in dataBase["clientes"]: #correo encontrado en la base de datos de usuario
-            if dataBase["clientes"][correo]["pass"] == password: #contraseña correcta
-                typeUser = "cliente" #usuario es cliente
-                nombre = dataBase["clientes"][correo]["nombre"] #se guarda el nombre para referirse a el usuario
-
-
-        elif correo in dataBase["ejecutivos"]: #correo encontrado en la base de datos de ejecutivos
-            if dataBase["ejecutivos"][correo]["pass"] == password: #contraseña correcta
-                typeUser = "ejecutivo" #usuario es ejecutivo
-                nombre = dataBase["ejecutivos"][correo]["nombre"] #se guarda el nombre para referirse a el usuario
+        conn.send("Ingrese su contraseña: ".encode())
+        password = conn.recv(1024).decode().strip()
         
-        
+        tipo = None
+        nombre_cl = None
+        nombre_ej = None
 
-        #Si paso las credenciales, se le asigna su respectivo menu
-        if typeUser == "cliente": #usuario es cliente (requiere menu para clientes)
-            conexion.send(f"Asistente: ¡Bienvenido {nombre}! ¿En que te podemos ayudar?".encode()) #envio de mensaje al usuario
-            while True
-                #---------Menu cliente---------#
-                menu = ("[1] Cambio de contraseña. \n"
-                        "[2] Historial de operaciones. \n"
-                        "[3] Catalogo de productos / Comprar productos. \n"
-                        "[4] Solicitar devolucion. \n"
-                        "[5] Confirmar envio. \n"
-                        "[6] Contactarse con un ejecutivo. \n"
-                        "[7] Salir \n"
-                        "Ingrese un numero: \n")
-                conexion.send(menu.encode()) #envio de mensaje al usuario
-                opcion = conexion.recv(1024).decode().strip() #mensaje desde el usuario
+        if correo in dataBase.get("clientes", {}) and dataBase["clientes"][correo]["pass"] == password:
+            tipo = "cliente"
+            nombre_cl = dataBase["clientes"][correo]["nombre"]
+            clientes_activos[correo] = {"socket": conn, "nombre": nombre_cl}
+            print(f"Cliente {nombre_cl} conectado.")
+        elif correo in dataBase.get("ejecutivos", {}) and dataBase["ejecutivos"][correo]["pass"] == password:
+            tipo = "ejecutivo"
+            nombre_ej= dataBase["ejecutivos"][correo]["nombre"]
+            print(f"Ejecutivo {nombre_ej} conectado.")
+            
+#Funciones para clientes            
+        if tipo == "cliente":
+            conn.send(f"Asistente: ¡Bienvenido {nombre_cl}! ¿En qué te podemos ayudar?\n".encode())
 
-                #Desafio mayormente en opcion 2 (mostrar y seleccionar una compra del historial), 
-                #opcion 3 (registrar bien el formato de compra y armar la lista de productos en database)
-                #opcion 6 (armar sala de chat con ejecutivo)
+            while True:
+                menu = (
+                    "\n[1] Cambio de contraseña\n"
+                    "[2] Historial de operaciones\n"
+                    "[3] Catálogo / Comprar productos\n"
+                    "[4] Solicitar devolución\n"
+                    "[5] Confirmar envío\n"
+                    "[6] Contactar ejecutivo\n"
+                    "[7] Salir\nIngrese una opción: "
+                )
+                conn.send(menu.encode())
+                opcion = conn.recv(1024).decode().strip()
 
                 if opcion == "1":
-                    conexion.send("Ingrese nueva contraseña: ".encode()) #envio de mensaje al usuario
-                    newPassword =conexion.recv(1024).decode().strip() #mensaje desde el usuario
-                    conexion.send("Ingrese su nueva contraseña otra vez: ".encode()) #envio de mensaje al usuario
-                    newPassword2 =conexion.recv(1024).decode().strip() #mensaje desde el usuario
-                    if newPassword == newPassword2:
-                        dataBase["clientes"][correo]["pass"] = newPassword #se actualiza la contraseña
-                        conexion.send("Contraseña actualizada exitosamente. \n".encode()) #envio de mensaje al usuario
+                    conn.send("Ingrese nueva contraseña: ".encode())
+                    new_pass = conn.recv(1024).decode().strip()
+                    conn.send("Repita la nueva contraseña: ".encode())
+                    confirm = conn.recv(1024).decode().strip()
+
+                    if new_pass == confirm:
+                        if new_pass == confirm:
+                            dataBase["clientes"][correo]["pass"] = new_pass
+                            guardar_base_datos()
+                            conn.send("Contraseña actualizada exitosamente.\n".encode())
+                            dataBase["clientes"][correo].setdefault("acciones", []).append(f"Cambió su contraseña ({datetime.now().strftime('%d/%m/%Y %H:%M')})")
+                            guardar_base_datos()
+                        print(f"Cliente {nombre_cl} cambió su contraseña.")
                     else:
-                        conexion.send("Las contraseñas no coinciden. Se le regresara al menu. \n".encode()) #envio de mensaje al usuario
+                        conn.send("Las contraseñas no coinciden.\n".encode())
 
                 elif opcion == "2":
-                    historial = dataBase["clientes"][correo].get("compras", []) #se obtiene la lista del historial
+                    historial = dataBase["clientes"][correo].get("compras", [])
+                    dataBase["clientes"][correo].setdefault("acciones", []).append(f"Consultó su historial de compras ({datetime.now().strftime('%d/%m/%Y %H:%M')})")
+                    guardar_base_datos()
+                    print(f"Cliente {nombre_cl} revisó su historial de compras.")
                     if not historial:
-                        conexion.send("No hay operaciones registradas. \n".encode()) #envio de mensaje al usuario
+                        conn.send("No hay acciones registradas.\n".encode())
                     else:
-                        compras = "\n".join(historial) #se separa la lista del historial
-                        conexion.send(f"Compras: \n{compras}\n".encode()) #envio de mensaje al usuario
+                        compras = "\n".join(historial)
+                        conn.send(f"Historial:\n{compras}\n".encode())
 
                 elif opcion == "3":
-                    productos = dataBase.get("productos", {}) #se obtienen los productos
+                    dataBase["clientes"][correo].setdefault("acciones", []).append(
+                        f"Consultó el catálogo de productos ({datetime.now().strftime('%d/%m/%Y %H:%M')})"
+                    )
+                    guardar_base_datos()
+
+                    productos = dataBase.get("productos", {})
+                    print(f"Cliente {nombre_cl} esta revisando el catálogo de productos.")
                     if not productos:
-                        conexion.send("No hay productos disponibles en este momento. \n".encode()) #envio de mensaje al usuario
+                        conn.send("No hay productos disponibles.\n".encode())
                     else:
-                        lista = "\n".join([f"prodID: {info["nombre"]} - {info["precio"]}" for prodID, info in productos.items()]) #se separa la lista de los productos
-                        conexion.send(f"Productos disponibles: \n{lista} \n","Seleccione ID del producto que desea: ".encode()) #envio de mensaje al usuario
-                        prodID = conexion.recv(1024).decode().strip() #mensaje desde el usuario
-                        if prodID in productos:
-                            fecha = datetime.now().strftime("%d/%m/%Y $H:$M") #formato a la fecha
-                            producto = productos[prodID]["nombre"] #se obtiene el producto
-                            registro = f"{producto}" ({fecha}) #se guarda el formato de guardado del producto
-                            dataBase["clientes"][correo].setdefault("compras", []).append(registro) #se añade a la lista de compras
+                        lista = "\n".join([f"{pid}: {info['nombre']} - ${info['precio']} - stock[x{info['stock']}]" for pid, info in productos.items()])
+                        conn.send(f"Productos disponibles:\n{lista}\nSeleccione ID del producto: ".encode())
+                        pid = conn.recv(1024).decode().strip()
+                        
+                        if pid in productos and productos[pid]["stock"] > 0:
+                            producto = productos[pid]
+                            #disminuir en una unidad el stock diponible de la carta
+                            producto["stock"] -= 1
+                            fecha = datetime.now().strftime("%d/%m/%Y %H:%M")
+                            nombre_producto = productos[pid]["nombre"]
+                            precio = productos[pid]["precio"]
+                            registro = f"Compró {nombre_producto} por ${precio} ({fecha})"
+                            dataBase["clientes"][correo].setdefault("acciones", []).append(registro)
+                            guardar_base_datos()
+                            dataBase["clientes"][correo].setdefault("compras", []).append(registro)
+                            guardar_base_datos()
+                            
+                            conn.send("Compra realizada exitosamente.\n".encode())
+                            print(f"Cliente {nombre_cl} compró exitosamente {nombre_producto} pid {pid} .")
                         else:
-                            conexion.send("ID invalido. \n".encode()) #envio de mensaje al usuario
+                            conn.send("ID de producto no válido o sin stock.\n".encode())
+
 
                 elif opcion == "4":
-                    conexion.send("Ingrese ID del producto a devolver: \n".encode()) #envio de mensaje al usuario
-                    prodID = conexion.recv(1024).decode().strip() #mensaje desde el usuario
-                    conexion.send("Motivo de la devolucion: \n".encode()) #envio de mensaje al usuario
-                    motivo = conexion.recv(1024).decode().strip()  #mensaje desde el usuario
-                    conexion.send("Solicitud de devolucion registrada. Lamentamos los inconvenientes 😔. \n".encode()) #envio de mensaje al usuario
+                    conn.send("Ingrese ID del producto a devolver: ".encode())
+                    pid = conn.recv(1024).decode().strip()  
+                    conn.send("Motivo de la devolución: ".encode())
+                    motivo = conn.recv(1024).decode().strip()  
+
+                    conn.send("Solicitud de devolución registrada.\n".encode())
+                    dataBase["clientes"][correo].setdefault("acciones", []).append(
+                        f"Solicitó devolución del producto ID {pid} con motivo: {motivo} ({datetime.now().strftime('%d/%m/%Y %H:%M')})"
+                    )
+                    guardar_base_datos()
+                    print(f"Cliente {nombre_cl} Solicitó devolución del producto ID {pid} con motivo: {motivo}.")
+
 
                 elif opcion == "5":
-                    conexion.send("Confirmacion de envio recibida. ¡Gracias por comprar con nosotros! \n".encode()) #envio de mensaje al usuario
-
+                    conn.send("Confirmación de envío recibida. ¡Gracias por su compra!\n".encode())
+                    dataBase["clientes"][correo].setdefault("acciones", []).append(f"Confirmó envío de producto ({datetime.now().strftime('%d/%m/%Y %H:%M')})")
+                    guardar_base_datos()
+                    print(f"Cliente {nombre_cl} confirmó envío de producto.") 
+            
                 elif opcion == "6":
-                    conexion.send("Un ejecutivo se comunicara contigo pronto, por favor ten paciencia. \n".encode()) #envio de mensaje al usuario
-                    #Implementar chat con ejecutivo posteriormente
+                    conn.send("Espere mientras lo conectamos con un ejecutivo...\n".encode())
+                    dataBase["clientes"][correo].setdefault("acciones", []).append(f"Solicitó atención de ejecutivo ({datetime.now().strftime('%d/%m/%Y %H:%M')})")
+                    guardar_base_datos()
+
+                    with lock:
+                        clientes_esperando.append(conn)
+
+                    while True:
+                        with lock:
+                            if conn in emparejamientos:
+                                ejecutivo = emparejamientos[conn]
+                                break
+
+                    conn.send("Conectado con un ejecutivo. Escriba 'salir' para terminar el chat.\n".encode())
+                    print(f"Cliente {nombre_cl} redirgido con Ejecutivo {nombre_ej}.")
+                    while True:
+                        msg = conn.recv(1024).decode().strip()
+                        if msg.lower() == "salir":
+                            break
+                        ejecutivo.send(f"Cliente: {msg}\n".encode())
+
+                    conn.send("Chat finalizado.\n".encode())
+                    with lock:
+                        if conn in emparejamientos:
+                            del emparejamientos[ejecutivo]
+                            del emparejamientos[conn]
 
                 elif opcion == "7":
-                    conexion.send("Gracias por usar la plataforma. ¡Vuelve luego!  \n".encode()) #envio de mensaje al usuario
+                    conn.send("Gracias por usar la plataforma. ¡Hasta luego!\n".encode())
+                    print(f"Cliente {nombre_cl} se ha desconectado.")
+                    break
 
                 else:
-                    conexion.send("Opcion invalida. Intente nuevamente. \n".encode()) #envio de mensaje al usuario
+                    conn.send("Opción inválida.\n".encode())
 
+                    
+#Accionoes para ejecutivos
+                    
+        elif tipo == "ejecutivo":
+            conn.send(f"Asistente: Hola {nombre_ej}. Hay {len(clientes_esperando)} clientes esperando.\n".encode())
 
+            cliente_actual = None
+            atendiendo=False
 
+            while True:
+                conn.send(f"Ingrese algún comando".encode())
+                menu_ej = (
+                    "\n[:status] Consultar solicitudes\n"
+                    "[:connect] conectarse con uncliente en espera\n"
+                    "[:details] Consultar última acción de clientes áctivos\n"
+                    "[:history] Revisar historial del cliente\n"
+                    "[:operations] Mostrar historial de operaciones al cliente\n"
+                    "[:catalogue] Consultar catálogo disponible\n"
+                    "[:buy] Comprar carta al cliente [carta, precio]\n"
+                    "[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)\n "
+                    "[:disconnect] Terminar conexión con cliente\n"
+                    "[:exit] Salir\nIngrese una opción: "
+                )
+                conn.send(menu_ej.encode())
+                comando = conn.recv(1024).decode().strip()
+                
+                if comando == ":status":
+                    conn.send(f"Clientes conectados: {len(clientes_activos)}\nSolicitudes en espera: {len(clientes_esperando)}\n".encode())
 
+                elif comando == ":details":
+                    if not clientes_activos:
+                        conn.send("No hay clientes conectados.\n".encode())
+                    else:
+                        detalles = ""
+                        for mail, info in clientes_activos.items():
+                            detalles += f"{mail} - {info['nombre_cl']} | Última acción: {info.get('ultima_accion', 'Sin actividad')}\n"
+                        conn.send(detalles.encode())
 
-        elif typeUser == "ejecutivo": #usuario es ejecutivo (requiere menu para ejecutivo)
-            conexion.send(f"¡Bienvenido {nombre}! en este momento hay N_clientes conectados.".encode()) #envio de mensaje al usuario
+                elif comando == ":connect":
+                    with lock:
+                        if not clientes_esperando:
+                            conn.send("No hay clientes esperando actualmente.\n".encode())
+                            continue
+                        atendiendo=True
+                        cliente_atendido = clientes_esperando.pop(0)
+                        emparejamientos[cliente_atendido] = conn
+                        emparejamientos[conn] = cliente_atendido
+                    conn.send("Conectado con un cliente. Puede comenzar a chatear. (:disconnect para terminar)\n".encode())
 
+                elif comando == ":history":
+                    if atendiendo== False:
+                        conn.send("No estás atendiendo a ningún cliente.\n".encode())
+                        continue
+                    for correo, data in clientes_activos.items():
+                        if data["socket"] == cliente_atendido:
+                            historial = dataBase["clientes"][correo].get("acciones", [])
+                            if not historial:
+                                conn.send("El cliente no tiene historial.\n".encode())
+                            else:
+                                conn.send("\n".join(historial).encode())
+                            break
 
+                elif comando == ":operations":
+                    if atendiendo== False:
+                        conn.send("No estás atendiendo a ningún cliente.\n".encode())
+                        continue
+                    for correo, data in clientes_activos.items():
+                        if data["socket"] == cliente_atendido:
+                            compras = dataBase["clientes"][correo].get("compras", [])
+                            if not compras:
+                                conn.send("El cliente no tiene operaciones.\n".encode())
+                            else:
+                                conn.send("\n".join(compras).encode())
+                            break
 
+                elif comando == ":catalogue":
+                    productos = dataBase.get("productos", {})
+                    if not productos:
+                        conn.send("Catálogo vacío.\n".encode())
+                    else:
+                        lista = "\n".join([f"{pid}: {info['nombre']} - ${info['precio']} - stock[x{info['stock']}]" for pid, info in productos.items()])
+                        conn.send(lista.encode())
 
+                elif comando.startswith(":buy "):
+                    if atendiendo== False:
+                        conn.send("No estás atendiendo a ningún cliente.\n".encode())
+                        continue
+                    partes = comando.split(" ")
+                    if len(partes) < 3:
+                        conn.send("Uso incorrecto: :buy [carta] [precio]\n".encode())
+                        continue
+                    carta = partes[1]
+                    precio = partes[2]
+                    fecha = datetime.now().strftime("%d/%m/%Y %H:%M")
+                    registro = f"Compra de {carta} por ${precio} ({fecha})"
+                    for correo, data in clientes_activos.items():
+                        if data["socket"] == cliente_atendido:
+                            dataBase["clientes"][correo].setdefault("compras", []).append(registro)
+                            dataBase["clientes"][correo].setdefault("acciones", []).append(f"Compró {carta} por ${precio}")
+                            guardar_base_datos()
+                            cliente_atendido.send(f"Compra registrada: {carta} por ${precio}\n".encode())
+                            #Se suma una unidad de la carta al stock disponible
+                            producto = productos[pid]
+                            producto["stock"] += 1
+                            pid = conn.recv(1024).decode().strip()
+                            conn.send("Compra registrada.\n".encode())
+                            break
 
+                elif comando.startswith(":publish "):
+                    partes = comando.split(" ")
+                    if len(partes) < 3:
+                        conn.send("Uso incorrecto: :publish [carta] [precio]\n".encode())
+                        continue
+                    carta = partes[1]
+                    precio = partes[2]
+                    pid = str(len(dataBase["productos"]) + 1)
+                    dataBase["productos"][pid] = {"nombre": carta, "precio": precio}
+                    guardar_base_datos()
+                    conn.send(f"{carta} publicada por ${precio}.\n".encode())
 
-        elif typeUser == None:
-            conexion.send("Credenciales erroneas. Desconectando...".encode()) #envio de mensaje al usuario
+                elif comando == ":disconnect":
+                    if atendiendo== True:
+                        cliente_atendido.send("Chat finalizado por el ejecutivo.\n".encode())
+                        with lock:
+                            del emparejamientos[conexion]
+                            del emparejamientos[cliente_atendido]
+                        cliente_atendido = None
+                        atendiendo== False
+                        conn.send("Desconectado del cliente.\n".encode())
+                    else:
+                        conn.send("No hay cliente conectado actualmente.\n".encode())
 
-            conexion.close()
+                elif comando == ":exit":
+                    conn.send("Desconectando...\n".encode())
+                    break
 
-        """
-        #No se si esta parte sera necesaria a futuro
-        while True:
-            data = conexion.recv(1024).decode("utf-8")
-            if not data: #Se pierde la conexion con el usuario abruptamente
-                break
-            elif conexion.close():
-                print(f"[DESCONECTADO] {direccion} se ha desconectado.")
-            print(f"[{direccion}] {data}")
-        """
+                elif cliente_atendido:
+                    cliente_atendido.send(f"Ejecutivo: {comando}\n".encode())
 
-    except:
-        conexion.close()
-        print(f"[DESCONECTADO] {direccion} se ha desconectado.")
+                else:
+                    conn.send("Comando no reconocido o sin cliente conectado.\n".encode())
 
-# Arrancar el servidor
+        else:
+            conn.send("Credenciales incorrectas. Desconectando...\n".encode())
+
+    except Exception as e:
+        print(f"[ERROR] {direccion}: {e}")
+
+    finally:
+        conn.close()
+        print(f"[DESCONECTADO] {direccion}")
+
+def iniciar_servidor():
+    servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    servidor.bind((HOST, PORT))
+    servidor.listen(10)
+    print(f"[SERVIDOR] Escuchando en {HOST}:{PORT}...")
+
+    while True:
+        conn, addr = servidor.accept()  # Aceptar nuevas conexiones
+        hilo = threading.Thread(target=manejar_usuario, args=(conn, addr))  # Crear hilo para cada conexión
+        hilo.start()
+        print(f"[SERVIDOR] Conexiones activas: {threading.active_count() - 1}")
+
+                
+
 if __name__ == "__main__":
-    revivan_el_server()
+    servidor_hilo = threading.Thread(target=iniciar_servidor)
+    servidor_hilo.start()
+    #Se abre un rango de hasta 14 conexiones simultaneas
+    for direccion in range(1, 15):
+            proceso = multiprocessing.Process(target=manejar_usuario, args=(HOST, PORT))
+            procesos.append(proceso)
+            proceso.start()
+    # Esperar a que todos los procesos terminen
+            for proceso in procesos:
+                proceso.join()
+

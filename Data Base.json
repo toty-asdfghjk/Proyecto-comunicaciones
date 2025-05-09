@@ -3,18 +3,70 @@
         "gonzalo@gmail.com": {
             "pass": "1234",
             "nombre": "Gonzalo Alegría",
-            "historial": []
+            "historial": [],
+            "acciones": [
+                "Consultó su historial de compras (09/05/2025 03:44)",
+                "Consultó el catálogo de productos (09/05/2025 03:44)",
+                "Consultó el catálogo de productos (09/05/2025 03:50)",
+                "Consultó el catálogo de productos (09/05/2025 03:52)",
+                "Consultó su historial de compras (09/05/2025 03:52)",
+                "Consultó el catálogo de productos (09/05/2025 03:55)",
+                "Consultó su historial de compras (09/05/2025 03:59)",
+                "Consultó el catálogo de productos (09/05/2025 03:59)",
+                "Consultó el catálogo de productos (09/05/2025 04:04)",
+                "Consultó su historial de compras (09/05/2025 04:04)",
+                "Consultó su historial de compras (09/05/2025 04:08)",
+                "Consultó el catálogo de productos (09/05/2025 04:08)",
+                "Consultó el catálogo de productos (09/05/2025 04:09)",
+                "Consultó el catálogo de productos (09/05/2025 04:15)",
+                "Compró Pikachu por $59.99 (09/05/2025 04:15)",
+                "Consultó su historial de compras (09/05/2025 04:15)",
+                "Solicitó devolución del producto ID p001: el pepe (09/05/2025 04:24)",
+                "Confirmó envío de producto (09/05/2025 04:25)",
+                "Consultó su historial de compras (09/05/2025 04:25)",
+                "Solicitó atención de ejecutivo (09/05/2025 04:25)",
+                "Consultó su historial de compras (09/05/2025 04:58)",
+                "Cambió su contraseña (09/05/2025 05:01)",
+                "Consultó su historial de compras (09/05/2025 05:01)",
+                "Consultó el catálogo de productos (09/05/2025 06:28)",
+                "Compró Mewtwo por $299.99 (09/05/2025 06:28)",
+                "Consultó el catálogo de productos (09/05/2025 06:29)",
+                "Compró Mewtwo por $299.99 (09/05/2025 06:29)",
+                "Consultó el catálogo de productos (09/05/2025 06:29)",
+                "Consultó su historial de compras (09/05/2025 06:29)",
+                "Consultó su historial de compras (09/05/2025 06:36)"
+            ],
+            "compras": [
+                "Compró Pikachu por $59.99 (09/05/2025 04:15)",
+                "Compró Mewtwo por $299.99 (09/05/2025 06:28)",
+                "Compró Mewtwo por $299.99 (09/05/2025 06:29)"
+            ]
         },
         "ariel@gmail.com": {
             "pass": "5678",
             "nombre": "Ariel Nuñez",
-            "historial": []
+            "historial": [],
+            "acciones": [
+                "Consultó su historial de compras (09/05/2025 06:50)"
+            ]
         }
     },
     "ejecutivos": {
         "vincko@gmail.com": {
             "pass": "abcd",
             "nombre": "Vincko Fabres"
+        }
+    },
+    "productos": {
+        "p001": {
+            "stock": 0,
+            "nombre": "Mewtwo",
+            "precio": 299.99
+        },
+        "p002": {
+            "stock": 4,
+            "nombre": "Pikachu",
+            "precio": 59.99
         }
     }
 }
