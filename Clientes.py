@@ -80,4 +80,3 @@ finally:
     cliente.close()
     print("Te has desconectado.")
     loggear("Cliente desconectado.", "INFO")
-
