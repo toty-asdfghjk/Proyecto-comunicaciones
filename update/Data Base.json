@@ -1,0 +1,68 @@
+{
+    "clientes": {
+        "gonzalo@gmail.com": {
+            "pass": "1234",
+            "nombre": "Gonzalo Alegría",
+            "historial": [],
+            "acciones": [
+                "Consultó su historial de compras (09/05/2025 03:44)",
+                "Consultó el catálogo de productos (09/05/2025 06:28)",
+                "Compró Mewtwo por $299.99 (09/05/2025 06:28)",
+                "Consultó el catálogo de productos (09/05/2025 06:29)",
+                "Compró Mewtwo por $299.99 (09/05/2025 06:29)",
+                "Consultó el catálogo de productos (09/05/2025 06:29)",
+                "Solicitó atención de ejecutivo (09/05/2025 16:45)"
+            ],
+            "compras": [
+                "Compró Pikachu por $59.99 (09/05/2025 04:15)",
+                "Compró Mewtwo por $299.99 (09/05/2025 06:28)",
+                "Compró Mewtwo por $299.99 (09/05/2025 06:29)"
+            ]
+        },
+        "ariel@gmail.com": {
+            "pass": "5678",
+            "nombre": "Ariel Nuñez",
+            "historial": [],
+            "acciones": [
+                "Consultó su historial de compras (09/05/2025 06:50)",
+                "Compró Mewtwo por $299.0",
+                "Solicitó atención de ejecutivo (09/05/2025 18:46)",
+                "Compró Eevee por $7.5",
+                "Solicitó atención de ejecutivo (09/05/2025 21:01)",
+                "Solicitó atención de ejecutivo (09/05/2025 21:29)"
+            ],
+            "compras": [
+                "Compra de Mewtwo por $299.0 (09/05/2025 18:34)",
+                "Compra de Eevee por $7.5 (09/05/2025 18:46)"
+            ]
+        }
+    },
+    "ejecutivos": {
+        "vincko@gmail.com": {
+            "pass": "abcd",
+            "nombre": "Vincko Fabres"
+        }
+    },
+    "productos": {
+        "1": {
+            "stock": 3,
+            "nombre": "Mewtwo",
+            "precio": 299.99
+        },
+        "2": {
+            "stock": 5,
+            "nombre": "Pikachu",
+            "precio": 65.0
+        },
+        "3": {
+            "stock": 1,
+            "nombre": "Mew",
+            "precio": 77.5
+        },
+        "4": {
+            "stock": 1,
+            "nombre": "Eevee",
+            "precio": 15.75
+        }
+    }
+}
