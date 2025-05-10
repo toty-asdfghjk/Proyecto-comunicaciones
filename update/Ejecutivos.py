@@ -1,0 +1,128 @@
+import socket
+import threading
+import os
+from datetime import datetime
+
+### Funciones auxiliares ###
+#se limpia la consola
+def limpiar_consola():
+    os.system("cls" if os.name == "nt" else "clear")
+
+#se crea un separador para separar mensajes
+def imprimir_separador():
+    print("\n" + "=" * 50 + "\n")
+
+#se escribe en el log file
+def loggear(texto, tipo="INFO"):
+    with open("log_admin.txt", "a", encoding="utf-8") as log:
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        log.write(f"[{timestamp}] [{tipo}] {texto}\n")
+
+#espera un numero de input
+def espera_numero(mensaje):
+    return "Ingrese un número" in mensaje or mensaje.strip().endswith("número:")
+
+#espera un mensaje
+def recibir_msg(socket):
+    while True:
+        msg = socket.recv(1024).decode().strip()
+        if msg:
+            print(f"\n{msg}")
+        break
+
+#se definen variables
+HOST = "127.0.0.1"
+PORT = 5555
+
+ejecutivo = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+ejecutivo.connect((HOST, PORT))
+print("Conectado al servidor.")
+loggear("Conectado al servidor.", "INFO")
+
+try:
+    while True:
+        msg_server = ejecutivo.recv(4096).decode().strip() #se recibe mensaje del servidor
+        #Se busca guardar el nombre del ejecutivo para el caso de un chat
+        if "Asistente: Hola" in msg_server:
+            partes = msg_server.split("Asistente: Hola")
+            if len(partes) > 1:
+                nombre_raw = partes[1].split(".")[0].strip() #se separa el nombre del ejecutivo
+                nombre_ej = nombre_raw  #Se guarda el nombre del cliente
+
+        loggear(msg_server, "SERVIDOR") #se escribe en el log file
+
+        imprimir_separador()
+
+        if "Historial" in msg_server or "Compras" in msg_server:
+            for i, linea in enumerate(msg_server.splitlines(), 1):
+                print(f"{linea}")
+        elif "Catálogo" in msg_server or "Productos disponibles" in msg_server:
+            print("[CATÁLOGO DE PRODUCTOS]\n")
+            print(msg_server)
+        elif "Bienvenido" in msg_server or "Asistente" in msg_server:
+            limpiar_consola()
+            print(f"{msg_server}\n")
+        elif msg_server.startswith("[") and "Ingrese un número" in msg_server:
+            print("[MENÚ PRINCIPAL]")
+            print(msg_server)
+        else:
+            print(msg_server)
+
+
+        if "Desconectando" in msg_server or "Gracias por usar" in msg_server:
+            break
+
+        if msg_server.endswith(":") or msg_server.endswith("número:") or msg_server.endswith("otra vez:") or msg_server.endswith("desea:"):
+            while True:
+                msg_ejecutivo = input(">> ").strip()
+
+                if not msg_ejecutivo:
+                    print("⚠️ No puede dejar el campo vacío. Intente de nuevo.")
+                    continue
+
+                if espera_numero(msg_server):
+                    if not msg_ejecutivo.isdigit():
+                        print("❌ Ingrese solo un comando válido.")
+                        continue
+
+                if "contraseña" in msg_server.lower():
+                    loggear("Se ingresó una contraseña (oculta por seguridad).", "EJECUTIVO")
+                else:
+                    loggear(msg_ejecutivo, "EJECUTIVO")
+
+                ejecutivo.send(msg_ejecutivo.encode())
+                break
+
+        #se activa el modo chat
+        if "Conectado con un cliente" in msg_server: #se detecta que se inicia el chat con un cliente
+            print("\n ----- Chat iniciado ----- \nEscriba 'salir para terminar el chat.' \n")
+            hilo_receptor = threading.Thread(target=recibir_msg, args=(ejecutivo,), daemon=True) #para recibir y enviar mensajes por turnos (se buguea y frena)
+            hilo_receptor.start()
+            while True:
+                
+                msg_ejecutivo = input(f"{nombre_ej}: ").strip() #mensaje del cliente
+
+                if not msg_ejecutivo: #detector de mensaje en vacio (yo creo que se puede eliminar)
+                    continue
+                if msg_ejecutivo.startswith(":"): #detector de comando (un intento de eso, falta implementarlo correctamente)
+                    ejecutivo.send(msg_ejecutivo.encode())
+                    continue
+
+                ejecutivo.send(msg_ejecutivo.encode()) #se envia mensaje del ejecutivo
+                if msg_ejecutivo == ":disconnect":
+                    break
+
+                res_ejecutivo = ejecutivo.recv(1024).decode().strip() #se recibe mensaje del cliente
+                if res_ejecutivo:
+                    print(res_ejecutivo)
+            continue #creo que este es el culpable de que frenen los mensajes
+
+#detectores de errores y cierres de la sesion
+except Exception as e:
+    loggear(f"Error: {e}", "ERROR")
+    print(f"[ERROR] {e}")
+
+finally:
+    ejecutivo.close()
+    print("Te has desconectado.")
+    loggear("Ejecutivo desconectado.", "INFO")
