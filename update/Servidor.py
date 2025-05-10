@@ -217,11 +217,15 @@ def manejar_usuario(conn, direccion):
                 "[:buy] Comprar carta al cliente [carta, precio]\n"
                 "[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)\n"
                 "[:disconnect] Terminar conexión con cliente\n"
-                "[:exit] Salir\nIngrese una opción: "
+                "[:exit] Salir\n"
             )
             conn.send(menu_ej.encode())
 
             while True: 
+                if atendiendo == False:
+                    conn.send("Ingrese una opción: ".encode())
+                else: conn.send("\n".encode())
+
                 comando = conn.recv(1024).decode().strip()
 
                 #Consultar solicitudes
@@ -250,7 +254,7 @@ def manejar_usuario(conn, direccion):
                         emparejamientos[conn] = cliente_atendido #se realiza emparejamiento (No entendi bien estas lineas)
                     conn.send("Conectado con un cliente. Puede comenzar a chatear. (:disconnect para terminar)\n".encode())
 
-                #Revisar historial del cliente
+                #Revisar historial de compras del cliente
                 elif comando == ":history": 
                     if atendiendo== False: #no se esta atendiendo a cliente
                         conn.send("No estás atendiendo a ningún cliente.\n".encode())
@@ -310,6 +314,8 @@ def manejar_usuario(conn, direccion):
                             dataBase["clientes"][correo].setdefault("acciones", []).append(f"Vendió {carta} por ${precio}") #se registra la venta del usuario
                             guardar_base_datos() #se guarda la base de datos
                             cliente_atendido.send(f"Compra registrada: {carta} por ${precio}\n".encode())
+                            ### quizas estaria bueno poner un mensaje para el ejecutivo de que concreto la compra ###
+                            #conn.send(f"Se realizo la compra de {carta} por ${precio}\n".encode()) #no he testeado esta linea
 
                 #Publicar una carta a la venta
                 elif comando.startswith(":publish "): 
