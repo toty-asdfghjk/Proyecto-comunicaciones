@@ -23,17 +23,18 @@ def espera_numero(mensaje):
     return "Ingrese un número" in mensaje or mensaje.strip().endswith("número:")
 
 #espera un mensaje
-def recibir_msg(socket):
+def recibir_msg_chat(socket):
     while True:
         msg = socket.recv(1024).decode().strip()
         if msg:
             print(f"\n{msg}")
-        break
+            print(f"{nombre_ej}: ", end="", flush=True)
 
 #se definen variables
 HOST = "127.0.0.1"
 PORT = 5555
 
+modo_chat = False
 ejecutivo = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 ejecutivo.connect((HOST, PORT))
 print("Conectado al servidor.")
@@ -71,8 +72,8 @@ try:
 
         if "Desconectando" in msg_server or "Gracias por usar" in msg_server:
             break
-
-        if msg_server.endswith(":") or msg_server.endswith("número:") or msg_server.endswith("otra vez:") or msg_server.endswith("desea:"):
+        
+        if msg_server.endswith(":") or msg_server.endswith("\n") or msg_server.endswith("_CHAT_"):
             while True:
                 msg_ejecutivo = input(">> ").strip()
 
@@ -96,26 +97,21 @@ try:
         #se activa el modo chat
         if "Conectado con un cliente" in msg_server: #se detecta que se inicia el chat con un cliente
             print("\n ----- Chat iniciado ----- \nEscriba 'salir para terminar el chat.' \n")
-            hilo_receptor = threading.Thread(target=recibir_msg, args=(ejecutivo,), daemon=True) #para recibir y enviar mensajes por turnos (se buguea y frena)
+            modo_chat = True
+
+            hilo_receptor = threading.Thread(target=recibir_msg_chat, args=(ejecutivo,), daemon=True) #para recibir y enviar mensajes por turnos (se buguea y frena)
             hilo_receptor.start()
+
             while True:
-                
-                msg_ejecutivo = input(f"{nombre_ej}: ").strip() #mensaje del cliente
+                msg_ejecutivo = msg_ejecutivo = input("").strip()
 
                 if not msg_ejecutivo: #detector de mensaje en vacio (yo creo que se puede eliminar)
-                    continue
-                if msg_ejecutivo.startswith(":"): #detector de comando (un intento de eso, falta implementarlo correctamente)
-                    ejecutivo.send(msg_ejecutivo.encode())
                     continue
 
                 ejecutivo.send(msg_ejecutivo.encode()) #se envia mensaje del ejecutivo
                 if msg_ejecutivo == ":disconnect":
                     break
-
-                res_ejecutivo = ejecutivo.recv(1024).decode().strip() #se recibe mensaje del cliente
-                if res_ejecutivo:
-                    print(res_ejecutivo)
-            continue #creo que este es el culpable de que frenen los mensajes
+            continue
 
 #detectores de errores y cierres de la sesion
 except Exception as e:

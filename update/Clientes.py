@@ -23,12 +23,12 @@ def espera_numero(mensaje):
     return "Ingrese un número" in mensaje or mensaje.strip().endswith("número:")
 
 #espera un mensaje
-def recibir_msg(socket):
+def recibir_msg_chat(socket):
     while True:
         msg = socket.recv(1024).decode().strip()
         if msg:
             print(f"\n{msg}")
-        break
+            print(f"{nombre_cl}: ", end="", flush=True)
 
 #se definen variables
 HOST = "127.0.0.1"
@@ -97,7 +97,8 @@ try:
         #se activa el modo chat
         if "Conectado con un ejecutivo" in msg_server: #se detecta que se inicia el chat con un ejecutivo
             print("\n ----- Chat iniciado ----- \nEscriba 'salir para terminar el chat.' \n")
-            hilo_receptor = threading.Thread(target=recibir_msg, args=(cliente,), daemon=True) #para recibir y enviar mensajes por turnos (se buguea y frena)
+
+            hilo_receptor = threading.Thread(target=recibir_msg_chat, args=(cliente,), daemon=True) #para recibir y enviar mensajes por turnos (se buguea y frena)
             hilo_receptor.start()
 
             while True:
@@ -110,12 +111,6 @@ try:
                 cliente.send(msg_cliente.encode()) #se envia mensaje del cliente
                 if msg_cliente.lower() == "salir": #detecta si el cliente cierra el chat
                     break
-
-                #respuesta del ejecutivo
-                res_ejecutivo = cliente.recv(1024).decode().strip() 
-                if res_ejecutivo:
-                    print(res_ejecutivo)
-            continue #creo que este es el culpable de que frenen los mensajes, al menos respecto al cliente
         #### Quizas hay que hacer que el cliente primero reciba mensaje de ejecutivo y luego envia mensaje sino se buguea ####
 
 #detectores de errores y cierres de la sesion
