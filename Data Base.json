@@ -5,50 +5,103 @@
             "nombre": "Gonzalo Alegría",
             "historial": [],
             "acciones": [
-                "Consultó su historial de compras (09/05/2025 03:44)",
-                "Consultó el catálogo de productos (09/05/2025 03:44)",
-                "Consultó el catálogo de productos (09/05/2025 03:50)",
-                "Consultó el catálogo de productos (09/05/2025 03:52)",
-                "Consultó su historial de compras (09/05/2025 03:52)",
-                "Consultó el catálogo de productos (09/05/2025 03:55)",
-                "Consultó su historial de compras (09/05/2025 03:59)",
-                "Consultó el catálogo de productos (09/05/2025 03:59)",
-                "Consultó el catálogo de productos (09/05/2025 04:04)",
-                "Consultó su historial de compras (09/05/2025 04:04)",
-                "Consultó su historial de compras (09/05/2025 04:08)",
-                "Consultó el catálogo de productos (09/05/2025 04:08)",
-                "Consultó el catálogo de productos (09/05/2025 04:09)",
-                "Consultó el catálogo de productos (09/05/2025 04:15)",
-                "Compró Pikachu por $59.99 (09/05/2025 04:15)",
-                "Consultó su historial de compras (09/05/2025 04:15)",
-                "Solicitó devolución del producto ID p001: el pepe (09/05/2025 04:24)",
-                "Confirmó envío de producto (09/05/2025 04:25)",
-                "Consultó su historial de compras (09/05/2025 04:25)",
-                "Solicitó atención de ejecutivo (09/05/2025 04:25)",
-                "Consultó su historial de compras (09/05/2025 04:58)",
-                "Cambió su contraseña (09/05/2025 05:01)",
-                "Consultó su historial de compras (09/05/2025 05:01)",
-                "Consultó el catálogo de productos (09/05/2025 06:28)",
-                "Compró Mewtwo por $299.99 (09/05/2025 06:28)",
-                "Consultó el catálogo de productos (09/05/2025 06:29)",
-                "Compró Mewtwo por $299.99 (09/05/2025 06:29)",
-                "Consultó el catálogo de productos (09/05/2025 06:29)",
-                "Consultó su historial de compras (09/05/2025 06:29)",
-                "Consultó su historial de compras (09/05/2025 06:36)"
+                "Consultó su historial de compras (11/05/2025 05:23)",
+                "Consultó el catálogo de productos (11/05/2025 05:23)",
+                " Compró Mewtwo ID:1 por $299.99 (11/05/2025 05:24) ",
+                "Solicitó devolución del producto ID  1 con motivo: muy edgy (11/05/2025 05:28)",
+                "Confirmó envío de producto (11/05/2025 05:28)",
+                "Consultó su historial de compras (11/05/2025 05:29)",
+                "Solicitó devolución del producto ID  1 con motivo: waza (11/05/2025 05:32)",
+                "Solicitó atención de ejecutivo (11/05/2025 05:50)",
+                "Solicitó atención de ejecutivo (11/05/2025 06:00)",
+                "Solicitó atención de ejecutivo (11/05/2025 06:11)",
+                "Solicitó atención de ejecutivo (11/05/2025 06:19)",
+                "Consultó su historial de compras (11/05/2025 06:22)",
+                "Solicitó atención de ejecutivo (11/05/2025 06:33)",
+                "Solicitó atención de ejecutivo (11/05/2025 06:44)"
             ],
             "compras": [
                 "Compró Pikachu por $59.99 (09/05/2025 04:15)",
                 "Compró Mewtwo por $299.99 (09/05/2025 06:28)",
-                "Compró Mewtwo por $299.99 (09/05/2025 06:29)"
-            ]
+                "Compró Mewtwo por $299.99 (09/05/2025 06:29)",
+                "Compró Mewtwo 1 por $299.99 (10/05/2025 18:20)",
+                "Compró Mew 3 por $77.5 (10/05/2025 18:21)",
+                " Compró Mewtwo ID:1 por $299.99 (11/05/2025 05:24) "
+            ],
+            "items": {
+                "1": {
+                    "unidades": 2,
+                    "nombre": "Mewtwo"
+                },
+                "2": {
+                    "unidades": 4,
+                    "nombre": "Pikachu"
+                },
+                "3": {
+                    "unidades": 5,
+                    "nombre": "Mew"
+                },
+                "4": {
+                    "unidades": 3,
+                    "nombre": "Eevee"
+                }
+            }
         },
         "ariel@gmail.com": {
             "pass": "5678",
             "nombre": "Ariel Nuñez",
             "historial": [],
             "acciones": [
-                "Consultó su historial de compras (09/05/2025 06:50)"
-            ]
+                "Consultó su historial de compras (09/05/2025 06:50)",
+                "Compró Mewtwo por $299.0",
+                "Solicitó atención de ejecutivo (09/05/2025 18:46)",
+                "Compró Eevee por $7.5",
+                "Solicitó atención de ejecutivo (09/05/2025 21:01)",
+                "Solicitó atención de ejecutivo (09/05/2025 21:29)",
+                "Consultó su historial de compras (10/05/2025 02:25)",
+                "Consultó el catálogo de productos (10/05/2025 02:25)",
+                "Compró Pikachu por $65.0 (10/05/2025 02:25)",
+                "Confirmó envío de producto (10/05/2025 02:25)",
+                "Solicitó atención de ejecutivo (10/05/2025 02:28)",
+                "Solicitó atención de ejecutivo (10/05/2025 02:44)",
+                "Solicitó atención de ejecutivo (10/05/2025 02:55)",
+                "Solicitó atención de ejecutivo (10/05/2025 03:00)",
+                "Solicitó atención de ejecutivo (10/05/2025 03:01)",
+                "Solicitó atención de ejecutivo (10/05/2025 03:04)",
+                "Solicitó atención de ejecutivo (10/05/2025 03:16)",
+                "Solicitó atención de ejecutivo (10/05/2025 03:18)",
+                "Solicitó atención de ejecutivo (10/05/2025 03:19)",
+                "Solicitó atención de ejecutivo (10/05/2025 03:21)",
+                "Solicitó atención de ejecutivo (10/05/2025 03:25)",
+                "Solicitó atención de ejecutivo (10/05/2025 03:27)",
+                "Solicitó atención de ejecutivo (10/05/2025 03:29)",
+                "Solicitó atención de ejecutivo (10/05/2025 03:34)",
+                "Vendió Pikachu por $15.0"
+            ],
+            "compras": [
+                "Compra de Mewtwo por $299.0 (09/05/2025 18:34)",
+                "Compra de Eevee por $7.5 (09/05/2025 18:46)",
+                "Compró Pikachu por $65.0 (10/05/2025 02:25)",
+                "Compra de Pikachu por $15.0 (10/05/2025 03:37)"
+            ],
+            "items": {
+                "1": {
+                    "unidades": 3,
+                    "nombre": "Mewtwo"
+                },
+                "2": {
+                    "unidades": 4,
+                    "nombre": "Pikachu"
+                },
+                "3": {
+                    "unidades": 5,
+                    "nombre": "Mew"
+                },
+                "4": {
+                    "unidades": 3,
+                    "nombre": "Eevee"
+                }
+            }
         }
     },
     "ejecutivos": {
@@ -58,15 +111,25 @@
         }
     },
     "productos": {
-        "p001": {
-            "stock": 0,
+        "1": {
+            "stock": 4,
             "nombre": "Mewtwo",
             "precio": 299.99
         },
-        "p002": {
+        "2": {
             "stock": 4,
             "nombre": "Pikachu",
-            "precio": 59.99
+            "precio": 65.0
+        },
+        "3": {
+            "stock": 5,
+            "nombre": "Mew",
+            "precio": 77.5
+        },
+        "4": {
+            "stock": 3,
+            "nombre": "Eevee",
+            "precio": 15.75
         }
     }
 }

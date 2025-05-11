@@ -1,33 +1,69 @@
 import socket
+import threading
 import os
 from datetime import datetime
 
+### Funciones auxiliares ###
+#se limpia la consola
 def limpiar_consola():
     os.system("cls" if os.name == "nt" else "clear")
 
+#se crea un separador para separar mensajes
 def imprimir_separador():
     print("\n" + "=" * 50 + "\n")
 
+#se escribe en el log file
 def loggear(texto, tipo="INFO"):
     with open("log_admin.txt", "a", encoding="utf-8") as log:
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         log.write(f"[{timestamp}] [{tipo}] {texto}\n")
 
+#espera un numero de input
 def espera_numero(mensaje):
     return "Ingrese un número" in mensaje or mensaje.strip().endswith("número:")
 
+#espera un mensaje
+def recibir_msg_chat(socket):
+    while True:
+        try:
+            msg = socket.recv(1024)
+            if not msg:
+                    break
+            print("\n" + msg.decode())
+            if msg.lower() in ["salir", ":disconnect"]:
+                break
+        except:
+            print(f"[ERROR] {e}")
+            break
+        
+
+#se definen variables
+
+        
 HOST = "127.0.0.1"
 PORT = 5555
 
+
+
 ejecutivo = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 ejecutivo.connect((HOST, PORT))
+
+
+
 print("Conectado al servidor.")
 loggear("Conectado al servidor.", "INFO")
 
 try:
     while True:
-        msg_server = ejecutivo.recv(4096).decode().strip()
-        loggear(msg_server, "SERVIDOR")
+        msg_server = ejecutivo.recv(4096).decode().strip() #se recibe mensaje del servidor
+        #Se busca guardar el nombre del ejecutivo para el caso de un chat
+        if "Asistente: Hola" in msg_server:
+            partes = msg_server.split("Asistente: Hola")
+            if len(partes) > 1:
+                nombre_raw = partes[1].split(".")[0].strip() #se separa el nombre del ejecutivo
+                nombre_ej = nombre_raw  #Se guarda el nombre del ejecutivo
+
+        loggear(msg_server, "SERVIDOR") #se escribe en el log file
 
         imprimir_separador()
 
@@ -49,8 +85,8 @@ try:
 
         if "Desconectando" in msg_server or "Gracias por usar" in msg_server:
             break
-
-        if msg_server.endswith(":") or msg_server.endswith("número:") or msg_server.endswith("otra vez:") or msg_server.endswith("desea:"):
+        
+        if msg_server.endswith(":") or msg_server.endswith("\n") or msg_server.endswith("_CHAT_"):
             while True:
                 msg_ejecutivo = input(">> ").strip()
 
@@ -71,6 +107,33 @@ try:
                 ejecutivo.send(msg_ejecutivo.encode())
                 break
 
+        #se activa el modo chat
+        if "Conectado con un cliente" in msg_server: #se detecta que se inicia el chat con un cliente
+            print("\n ----- Chat iniciado ----- \nEscriba 'salir para terminar el chat.' \n")
+            hilo_receptor = threading.Thread(target=recibir_msg_chat, args=(ejecutivo,), daemon=True)
+            hilo_receptor.start()
+
+            while True:
+                try:
+                    msg_ejecutivo = input(f"{nombre_ej}: ").strip()
+                    
+                    if not msg_ejecutivo: #detector de mensaje en vacio (yo creo que se puede eliminar)
+                        continue
+
+                    ejecutivo.send(msg_ejecutivo.encode()) #se envia mensaje del ejecutivo
+                    if msg_ejecutivo.lower() in ["salir", ":disconnect"]:
+                        
+                        break
+                    if msg_server.endswith("desconectado"):
+                        
+                        print("El cliente se ha desconectado del chat")
+                        break
+                except Exception as e:
+                    print(f"[ERROR] {e}")
+                    break
+
+
+#detectores de errores y cierres de la sesion
 except Exception as e:
     loggear(f"Error: {e}", "ERROR")
     print(f"[ERROR] {e}")
