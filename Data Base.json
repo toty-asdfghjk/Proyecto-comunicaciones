@@ -9,11 +9,6 @@
                 "Solicitó devolución del producto ID  1 con motivo: muy edgy (11/05/2025 05:28)",
                 "Confirmó envío de producto (11/05/2025 05:28)",
                 "Consultó su historial de compras (11/05/2025 05:29)",
-                "Solicitó atención de ejecutivo (11/05/2025 14:01)",
-                "Solicitó atención de ejecutivo (11/05/2025 14:22)",
-                "Solicitó atención de ejecutivo (11/05/2025 14:31)",
-                "Solicitó atención de ejecutivo (11/05/2025 20:01)",
-                "Solicitó atención de ejecutivo (11/05/2025 20:04)",
                 "Solicitó atención de ejecutivo (11/05/2025 20:05)",
                 "Solicitó atención de ejecutivo (11/05/2025 20:35)"
             ],
@@ -76,17 +71,163 @@
                     "nombre": "Eevee"
                 }
             }
+        },
+        "Mauricio@gmail.com": {
+            "pass": "hola",
+            "nombre": "Mauricio Silva",
+            "historial": [],
+            "acciones": [
+                " Compró Mewtwo ID:1 por $299.99 (11/05/2025 05:24) "
+            ],
+            "compras": [
+                " Compró Mewtwo ID:1 por $299.99 (11/05/2025 05:24) "
+            ],
+            "items": {
+                "1": {
+                    "unidades": 1,
+                    "nombre": "Mewtwo"
+                },
+                "2": {
+                    "unidades": 2,
+                    "nombre": "Pikachu"
+                },
+                "3": {
+                    "unidades": 3,
+                    "nombre": "Mew"
+                },
+                "4": {
+                    "unidades": 1,
+                    "nombre": "Giratina"
+                }
+            }
+        },
+        "gabriel@gmail.com": {
+            "pass": "wena",
+            "nombre": "Gabriel Cádiz",
+            "historial": [],
+            "acciones": [
+                "Consultó su historial de compras (11/05/2025 05:29)",
+                "Solicitó atención de ejecutivo (11/05/2025 20:05)",
+                "Solicitó atención de ejecutivo (11/05/2025 20:35)"
+            ],
+            "compras": [
+                "Compró Pikachu por $59.99 (09/05/2025 04:15)",
+                "Compró Mewtwo por $299.99 (09/05/2025 06:28)"
+            ],
+            "items": {
+                "1": {
+                    "unidades": 2,
+                    "nombre": "Mewtwo"
+                },
+                "2": {
+                    "unidades": 2,
+                    "nombre": "Pikachu"
+                },
+                "3": {
+                    "unidades": 1,
+                    "nombre": "Moltres"
+                }
+            }
+        },
+        "ash@gmail.com": {
+            "pass": "pikachu",
+            "nombre": "Ash Ketchum",
+            "historial": [],
+            "acciones": [
+                "Solicitó devolución del producto ID  1 con motivo: impactrueno (11/05/2025 05:28)",
+                "Solicitó atención de ejecutivo (11/05/2025 20:35)"
+            ],
+            "compras": [
+                "Compró Pikachu por $59.99 (09/05/2025 04:15)"
+
+            ],
+            "items": {
+                "1": {
+                    "unidades": 2,
+                    "nombre": "Pikachu"
+                },
+                "2": {
+                    "unidades": 4,
+                    "nombre": "eevee"
+                },
+                "3": {
+                    "unidades": 5,
+                    "nombre": "Caterpie"
+                }
+            }
+        },
+        "gary@gmail.com": {
+            "pass": "oak",
+            "nombre": "Gary Oak",
+            "historial": [],
+            "acciones": [
+                "Solicitó devolución del producto ID  1 con motivo: Charmander (11/05/2025 05:28)",
+                "Solicitó atención de ejecutivo (11/05/2025 20:35)"
+            ],
+            "compras": [
+                "Compró Pikachu por $59.99 (09/05/2025 04:15)"
+
+            ],
+            "items": {
+                "1": {
+                    "unidades": 2,
+                    "nombre": "Charmander"
+                },
+                "2": {
+                    "unidades": 4,
+                    "nombre": "eevee"
+                },
+                "3": {
+                    "unidades": 5,
+                    "nombre": "Gyarados"
+                }
+            }
+        },
+        "cynthia@gmail.com": {
+            "pass": "sinnoh",
+            "nombre": "Campeona Cynthia",
+            "historial": [],
+            "acciones": [
+                "Solicitó devolución del producto ID  1 con motivo: Milotic (11/05/2025 05:28)",
+                "Solicitó atención de ejecutivo (11/05/2025 20:35)"
+            ],
+            "compras": [
+                "Compró Pikachu por $59.99 (09/05/2025 04:15)"
+
+            ],
+            "items": {
+                "1": {
+                    "unidades": 2,
+                    "nombre": "Garchomp"
+                },
+                "2": {
+                    "unidades": 4,
+                    "nombre": "Milotic"
+                },
+                "3": {
+                    "unidades": 5,
+                    "nombre": "Roserade"
+                }
+            }
         }
     },
     "ejecutivos": {
         "vincko@gmail.com": {
             "pass": "abcd",
             "nombre": "Vincko Fabres"
+        },
+        "5g_boss@gmail.com": {
+            "pass": "asdf",
+            "nombre": "Cesar Azurdia"
+        },
+        "profesor@gmail.com": {
+            "pass": "qwer",
+            "nombre": "Profesor Oak"
         }
     },
     "productos": {
         "1": {
-            "stock": 4,
+            "stock": 2,
             "nombre": "Mewtwo",
             "precio": 299.99
         },
@@ -109,6 +250,21 @@
             "stock": 1,
             "nombre": "Giratina",
             "precio": 133.3
+        },
+        "6": {
+            "stock": 3,
+            "nombre": "Rayquaza",
+            "precio": 177.5
+        },
+        "7": {
+            "stock": 7,
+            "nombre": "Geodude",
+            "precio": 15.0
+        },
+        "8": {
+            "stock": 10,
+            "nombre": "Caterpie",
+            "precio": 7.5
         }
     }
 }
