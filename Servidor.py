@@ -44,6 +44,114 @@ def eliminar_usuario(conn, tipo):
                 del ejecutivos_conectados[idx]
                 break
 
+def manejar_chat(conn, nombre, es_ejecutivo=False):
+    #maneja la comunicación, con soporte para comandos de ejecutivo
+    while True:
+        try:
+            data = conn.recv(1024)
+            if not data:
+                break
+                
+            msg = data.decode().strip()
+            
+            # Comandos de desconexión
+            if msg.lower() in ("salir", ":disconnect"):
+                conn.send("Confirmando desconexión...\n".encode())
+                break
+                
+            # Si es ejecutivo, verifica comandos especiales
+            if es_ejecutivo and msg.startswith(':'):
+                with mutex:
+                    #comandos durante chat
+                    if conn in emparejamientos:
+                        pareja = emparejamientos[conn]
+
+                        #revisa el historial de acciones del cliente
+                        if msg == ":history": 
+                            for correo, data in clientes_activos.items(): #se obtienen datos del cliente 
+                                if data["socket"] == pareja: #se corrobora si el cliente esta siendo atendido por un ejecutivo en este momento
+                                    historial = dataBase["clientes"][correo].get("acciones", []) #se obtiene las acciones del cliente
+                                    if not historial: #el cliente no ha realizado acciones 
+                                        conn.send("El cliente no tiene historial.\n".encode())
+                                    else:
+                                        conn.send("\n".join(historial).encode()) #se ajustan las acciones realizadas por el cliente para printear
+                                    break
+
+                        #revisa las compras del cliente
+                        elif msg == ":operations": 
+                            for correo, data in clientes_activos.items(): #se obtienen datos del cliente en caso de estar conectado al server
+                                if data["socket"] == pareja: #se corrobora si el cliente esta siendo atendido por un ejecutivo en este momento
+                                    compras = dataBase["clientes"][correo].get("compras", []) #se obtienen las compras realizadas por el cliente
+                                    if not compras: #el cliente no tiene compras
+                                        conn.send("El cliente no tiene operaciones.\n".encode())
+                                    else:
+                                        conn.send("\n".join(compras).encode()) #se ajustan las compras del cliente para printear
+                                    break
+
+                        #Comprar carta al cliente [carta, precio]
+                        elif msg.startswith(":buy"): 
+                            partes = msg.split(" ") #se separan el comando en [comando],[nombre_carta],[precio]
+                            if len(partes) < 3: #si hay mas de 3 palabras el comando no se ingreso bien
+                                conn.send("Uso incorrecto: :buy [carta] [precio]\n".encode())
+                                continue #se sale del bloque if
+                                    
+                            carta = partes[1].strip() #nombre de la carta
+                            precio = partes[2].strip() #precio de la carta 
+                            fecha = datetime.now().strftime("%d/%m/%Y %H:%M") #se guarda la fecha de la compra
+                            try: #puede darse error comun en la definicion de precio
+                                precio = float(precio)
+                            except:
+                                conn.send("ERROR: el precio debe ser un valor numerico (usar '.' para decimales)\n".encode()) #en particular al poner decimales con "," en lugar de "."
+                                continue
+
+                            for correo, data in clientes_activos.items(): #se obtienen datos del cliente en caso de estar conectado al server
+                                if data["socket"] == pareja: #se corrobora si el cliente esta siendo atendido por un ejecutivo en este momento
+                                    carta_exist = False
+                                    items_cl = dataBase["clientes"][correo].get("items", {})
+                                    for pid, item in items_cl.items():
+                                        if item["nombre"].lower() == carta.lower():
+                                            carta_exist = True
+                                            if item["unidades"] > 0:
+                                                item["unidades"] -= 1
+                                            
+                                    if carta_exist:
+                                            registro_compra = f"Venta de {carta} por ${precio} ({fecha})"
+                                            registro_accion = f"Vendió {carta} por ${precio}"
+                                            dataBase["clientes"][correo].setdefault("compras", []).append(registro_compra)
+                                            dataBase["clientes"][correo].setdefault("acciones", []).append(registro_accion)
+                                            conn.send(f"compra registrada: {carta} por ${precio}\n".encode())
+                                            pareja.send(f"El ejecutivo ha comprado tu {carta} por ${precio}\n".encode())
+                                            break
+                                    else: 
+                                        conn.send(f"El cliente no tiene {carta} en su posesión.\n".encode())
+                                break
+
+                        #comando para desconectarse del chat
+                        elif msg == ":disconnect":
+                            pareja.send("El ejecutivo terminó la conversación.\n".encode())
+                            break
+
+                        #no se identifico un comando o no es disponible de usar durante el chat
+                        else:
+                            conn.send("Comando no reconocido (:status, :details, :catalogue, :publish solo estan disponible fuera del modo chat).\n".encode())
+            # Reenvío normal de msgs
+            with mutex:
+                if conn in emparejamientos:
+                    pareja = emparejamientos[conn]
+                    if es_ejecutivo and msg.startswith(':'):
+                        pareja.send(f"{nombre}: [COMANDO]")
+                    pareja.send(f"{nombre}: {msg}\n".encode())
+                    
+        except Exception as e:
+            print(f"[ERROR] Chat {nombre}: {e}")
+            break
+            
+    # Limpieza post-desconexión
+    with mutex:
+        if conn in emparejamientos:
+            del emparejamientos[emparejamientos[conn]]
+            del emparejamientos[conn]
+
 
 #funcion para login de usuario
 def manejar_usuario(conn, direccion):
@@ -72,7 +180,7 @@ def manejar_usuario(conn, direccion):
             ejecutivos_activos[correo] = {"socket": conn, "nombre": nombre_ej}
             ejecutivos_conectados.append((nombre_ej, conn))
             print(f"Ejecutivo {nombre_ej} conectado.")
-                
+
 
 ############### SECCION PARA CLIENTES ###############
     #Funciones para clientes            
@@ -173,7 +281,10 @@ def manejar_usuario(conn, direccion):
                     boleta = dataBase["clientes"][correo].get("compras",[])
                     articulos = dataBase["clientes"][correo].get("items",{})
                     articulo= articulos[pid]
-                    if articulo["unidades"] > 0:
+                    if not articulo:
+                        conn.send("Producto no encontrado en su inventario. \n")
+                        continue
+                    elif articulo["unidades"] > 0:
                         conn.send("Motivo de la devolución: ".encode())
                         motivo = conn.recv(1024).decode().strip()  
 
@@ -215,41 +326,18 @@ def manejar_usuario(conn, direccion):
                     while True:
                         with mutex:
                             if conn in emparejamientos:
-                                nombre_cl, conn_cl = conn,conn
+                                conn_cl = conn
                                 nombre_ej, conn_ej = ejecutivos_conectados.pop(0)
                                 #se empareja ejecutivo con cliente
                                 emparejamientos[conn_cl] = conn_ej
                                 emparejamientos[conn_ej] = conn_cl
-                                
-                                
-                                 
-                                
+                                print(nombre_cl, " ; ", conn_cl, " ; ", nombre_ej, " ; ", conn_ej)
                                 print(f"Cliente {nombre_cl} redirgido con Ejecutivo {nombre_ej}.")
                                 break
 
                     conn.send("Conectado con un ejecutivo. Escriba 'salir' para terminar el chat.\n".encode())
-                    
-                        
-
-                    while True:
-                        data = conn.recv(1024)
-                        if not data:
-                            break
-                        mensaje = data.decode()
-
-                        if mensaje.lower() in ["salir", ":disconnect"]:
-                            conn.send("Desconectado del chat.\n".encode())
-                            break
-
-                        # Enviar mensaje al par correspondiente
-                        with mutex:
-                            if conn in emparejamientos:
-                                conn_pareja = emparejamientos[conn]
-                                try:
-                                    conn_pareja.send(f"{nombre_cl}: {mensaje}".encode())
-                                except Exception as e:
-                                    print(f"Error al enviar mensaje: {e}")
-                        
+                    manejar_chat(conn, nombre_cl)
+                    continue
                 #Salir
                 elif opcion == "7": #cliente se desconecta
                     conn.send("Gracias por usar la plataforma. ¡Hasta luego!\n".encode())
@@ -288,7 +376,7 @@ def manejar_usuario(conn, direccion):
             while True: 
                 if atendiendo == False:
                     conn.send("Ingrese una opción: ".encode())
-                else: conn.send("\n".encode())
+                else: conn.send("\u200A".encode())
 
                 comando = conn.recv(1024).decode().strip()
 
@@ -311,65 +399,31 @@ def manejar_usuario(conn, direccion):
                     with mutex:
                         if not clientes_esperando: #no hay clientes esperando contactarse
                             conn.send("No hay clientes esperando actualmente.\n".encode())
-                            continue #se sale del bloque if
-                        atendiendo=True #se activa el comando para modo chat
-                        nombre_cl, conn_cl = clientes_esperando.pop(0) #se saca al cliente de la lista
-                        nombre_ej, conn_ej = conn,conn
+                        else:
+                            atendiendo=True #se activa el comando para modo chat
+                            nombre_cl, conn_cl = clientes_esperando.pop(0) #se saca al cliente de la lista
+                            conn_ej = conn
+                        
+                            emparejamientos[conn_cl] = conn_ej #se establece al cliente como que esta siendo atendido
+                            emparejamientos[conn_ej] = conn_cl
+                            cliente_atendido = conn_cl
+                            conn.send("Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)\n".encode())
+                            conn_cl.send("Un ejecutivo se ha conectado. Puede comenzar a chatear. ('salir' para terminar)\n".encode())
                     
-                        emparejamientos[conn_cl] = conn_ej #se establece al cliente como que esta siendo atendido
-                        emparejamientos[conn_ej] = conn_cl
-                        conn.send("Conectado con un cliente. Puede comenzar a chatear. (:disconnect para terminar)\n".encode())
-                    while True:
-                        data = conn.recv(1024)
-                        if not data:
-                            break
-                        mensaje = data.decode()
-
-                        if mensaje.lower() in ["salir", ":disconnect"]:
-                            conn.send("Desconectado del chat.\n".encode())
-                            break
-
-                        # Enviar mensaje al par correspondiente
-                        with mutex:
-                            if conn in emparejamientos:
-                                conn_pareja = emparejamientos[conn]
-                                try:
-                                    conn_pareja.send(f"{nombre_ej}: {mensaje}".encode())
-                                except Exception as e:
-                                    print(f"Error al enviar mensaje: {e}")
-
-
-                        
-
-                        
+                    manejar_chat(conn, nombre_ej, True)
+                    continue
 
                 #Revisar historial de compras del cliente
                 elif comando == ":history": 
                     if atendiendo == False: #no se esta atendiendo a cliente
                         conn.send("No estás atendiendo a ningún cliente.\n".encode())
                         continue #se sale del bloque if
-                    for correo, data in clientes_activos.items(): #se obtienen datos del cliente 
-                        if data["socket"] == cliente_atendido: #se corrobora si el cliente esta siendo atendido por un ejecutivo en este momento
-                            historial = dataBase["clientes"][correo].get("acciones", []) #se obtiene las acciones del cliente
-                            if not historial: #el cliente no ha realizado acciones 
-                                conn.send("El cliente no tiene historial.\n".encode())
-                            else:
-                                conn.send("\n".join(historial).encode()) #se ajustan las acciones realizadas por el cliente para printear
-                            break
 
                 #Mostrar historial de operaciones al cliente
                 elif comando == ":operations": 
                     if atendiendo== False: #no se esta atendiendo a cliente
                         conn.send("No estás atendiendo a ningún cliente.\n".encode())
                         continue #se sale del bloque if
-                    for correo, data in clientes_activos.items(): #se obtienen datos del cliente en caso de estar conectado al server
-                        if data["socket"] == cliente_atendido: #se corrobora si el cliente esta siendo atendido por un ejecutivo en este momento
-                            compras = dataBase["clientes"][correo].get("compras", []) #se obtienen las compras realizadas por el cliente
-                            if not compras: #el cliente no tiene compras
-                                conn.send("El cliente no tiene operaciones.\n".encode())
-                            else:
-                                conn.send("\n".join(compras).encode()) #se ajustan las compras del cliente para printear
-                            break
 
                 #Consultar catálogo disponible
                 elif comando == ":catalogue": 
@@ -384,29 +438,7 @@ def manejar_usuario(conn, direccion):
                 elif comando.startswith(":buy"): 
                     if atendiendo== False: #no se esta atendiendo a cliente
                         conn.send("No estás atendiendo a ningún cliente.\n".encode())
-                        continue #se sale del bloque if
-                        
-                    partes = comando.split(" ") #se separan el comando en [comando],[nombre_carta],[precio]
-                    if len(partes) < 3: #si hay mas de 3 palabras el comando no se ingreso bien
-                        conn.send("Uso incorrecto: :buy [carta] [precio]\n".encode())
-                        continue #se sale del bloque if
-                            
-                    carta = partes[1] #nombre de la carta
-                    precio = partes[2] #precio de la carta 
-                    fecha = datetime.now().strftime("%d/%m/%Y %H:%M") #se guarda la fecha de la compra
-                    registro = f"Compra de {carta} por ${precio} ({fecha})" #se registra la accion de compra
-
-                    for correo, data in clientes_activos.items(): #se obtienen datos del cliente en caso de estar conectado al server
-                        if data["socket"] == cliente_atendido: #se corrobora si el cliente esta siendo atendido por un ejecutivo en este momento
-                            dataBase["clientes"][correo].setdefault("compras", []).append(registro) #se guarda la compra en el historial del usuario
-                            #### hay que quitarle la compra al usuario no añadirla #### 
-                            dataBase["clientes"][correo].setdefault("acciones", []).append(f"Vendió {carta} por ${precio}") #se registra la venta del usuario
-                            guardar_base_datos() #se guarda la base de datos
-                            cliente_atendido.send(f"Compra registrada: {carta} por ${precio}\n".encode())
-                            conn.send(f"Se realizo la compra de {carta} por ${precio}\n".encode())
-                                
-                            ### quizas estaria bueno poner un mensaje para el ejecutivo de que concreto la compra ###
-                            #conn.send(f"Se realizo la compra de {carta} por ${precio}\n".encode()) #no he testeado esta linea
+                        continue #se sale del bloque if      
 
                 #Publicar una carta a la venta
                 elif comando.startswith(":publish "): 
@@ -422,7 +454,7 @@ def manejar_usuario(conn, direccion):
                         if info["nombre"].lower() == carta.lower(): #se verifica si la carta esta en el catalogo
                             info["stock"] += 1 #se suma 1 al stock
                             info["precio"] = float(precio) #se actualiza o mantiene el precio
-                            conn.send("Compra registrada.\n".encode())
+                            conn.send(f"Producto {carta} publicado con precio ${precio}.\n".encode())
                             carta_exist = True #la carta fue detectada en el catalogo
                             guardar_base_datos() #se actualiza la base de datos
                             break
@@ -434,16 +466,7 @@ def manejar_usuario(conn, direccion):
 
                     #Terminar conexión con cliente
                 elif comando == ":disconnect": 
-                    if atendiendo== True: #se verifica si se esta en modo chat
-                        conn_cl.send("Chat finalizado por el ejecutivo.\n".encode())
-                        with mutex:
-                            del emparejamientos[conn_ej] #se elimina el emparejamiento del ejecutivo
-                            del emparejamientos[conn_cl] #se elimina el emparejamiento del cliente
-                        conn_cl = None #no se esta atendiendo a ningun cliente
-                        atendiendo = False #se sale del modo chat
-                        conn.send("Desconectado del cliente.\n".encode())
-                    else:
-                        conn.send("No hay cliente conectado actualmente.\n".encode())
+                    conn.send("No hay cliente conectado actualmente.\n".encode())
 
                 #Se desconecta el ejecutivo
                 elif comando == ":exit":
@@ -451,7 +474,6 @@ def manejar_usuario(conn, direccion):
                     conn.send("Desconectando...\n".encode())
                     print(f"Ejecutivo {nombre_ej} se ha desconectado.")
                     break
-
 
                 else:
                     conn.send("Comando no reconocido o sin cliente conectado.\n".encode())

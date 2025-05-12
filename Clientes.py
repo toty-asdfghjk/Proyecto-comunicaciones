@@ -2,6 +2,8 @@ import socket
 import threading
 import os
 from datetime import datetime
+import sys
+import time
 
 ### Funciones auxiliares ###
 #se limpia la consola
@@ -23,24 +25,27 @@ def espera_numero(mensaje):
     return "Ingrese un número" in mensaje or mensaje.strip().endswith("número:")
 
 #espera un mensaje
-def recibir_msg_chat(socket):
+def recibir_msg_chat(socket, nombre):
     while True:
         try:
-            
-            msg = socket.recv(1024)
+            msg = socket.recv(1024).decode().strip()
             if not msg:
                 break
-            print("\n" + msg.decode())
             if msg.lower() in ["salir", ":disconnect"]:
+                print("\nChat finalizado por ejecutivo")
                 break
+
+            sys.stdout.write("\r" + " " * 100 + "\r")
+            print(f"{msg}")
+            sys.stdout.write(f"{nombre}: ")
+            sys.stdout.flush()
+            time.sleep(0.1)
         except:
             print(f"[ERROR] {e}")
             break
 #se definen variables
 HOST = "127.0.0.1"
 PORT = 5555
-
-
 
 cliente = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 cliente.connect((HOST, PORT))
@@ -106,22 +111,20 @@ try:
 
         #se activa el modo chat
         if "Conectado con un ejecutivo" in msg_server: #se detecta que se inicia el chat con un ejecutivo
-            print("\n ----- Chat iniciado ----- \nEscriba 'salir para terminar el chat.' \n")
-            hilo_receptor = threading.Thread(target=recibir_msg_chat, args=(cliente,), daemon=True)#para recibir y enviar mensajes por turnos (se buguea y frena)
+            print("\n ----- Chat iniciado ----- \nEscriba 'salir' para terminar el chat. \n")
+            hilo_receptor = threading.Thread(target=recibir_msg_chat, args=(cliente, nombre_cl), daemon=True)#para recibir y enviar mensajes por turnos (se buguea y frena)
             hilo_receptor.start()
+
             while True:
-                
-                
                 try:
-                    msg_cliente = input(f"{nombre_cl}: ").strip()#mensaje del cliente
+                    msg_cliente = input(f"{nombre_cl}: ").strip()
                     if not msg_cliente: 
                         continue
-                    cliente.send(msg_cliente.encode()) #se envia mensaje del cliente
+                    cliente.send(f"{msg_cliente}".encode()) #se envia mensaje del cliente
                     
-                    if msg_cliente.lower() in ["salir", ":disconnect"]: #detecta si el cliente cierra el chat
-                        cliente.send("{nombre_cl} se ha desconectado")
+                    if msg_cliente.lower() == "salir": #detecta si el cliente cierra el chat
+                        cliente.send(f"{nombre_cl} se ha desconectado".encode())
                         break
-
                 except Exception as e:
                     print(f"[ERROR envío]: {e}")
                     break

@@ -2,6 +2,8 @@ import socket
 import threading
 import os
 from datetime import datetime
+import sys
+import time
 
 ### Funciones auxiliares ###
 #se limpia la consola
@@ -23,15 +25,20 @@ def espera_numero(mensaje):
     return "Ingrese un número" in mensaje or mensaje.strip().endswith("número:")
 
 #espera un mensaje
-def recibir_msg_chat(socket):
+def recibir_msg_chat(socket, nombre):
     while True:
         try:
-            msg = socket.recv(1024)
+            msg = socket.recv(1024).decode().strip()
             if not msg:
-                    break
-            print("\n" + msg.decode())
-            if msg.lower() in ["salir", ":disconnect"]:
                 break
+            if msg.lower() == "salir":
+                break
+
+            sys.stdout.write("\r" + " " * 100 + "\r")  # Limpia línea
+            print(msg)
+            sys.stdout.write(f"{nombre}: ")
+            sys.stdout.flush()
+            time.sleep(0.1)
         except:
             print(f"[ERROR] {e}")
             break
@@ -42,8 +49,6 @@ def recibir_msg_chat(socket):
         
 HOST = "127.0.0.1"
 PORT = 5555
-
-
 
 ejecutivo = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 ejecutivo.connect((HOST, PORT))
@@ -86,7 +91,7 @@ try:
         if "Desconectando" in msg_server or "Gracias por usar" in msg_server:
             break
         
-        if msg_server.endswith(":") or msg_server.endswith("\n") or msg_server.endswith("_CHAT_"):
+        if msg_server.endswith(":") or msg_server.endswith("\n") or msg_server == "\u200A":
             while True:
                 msg_ejecutivo = input(">> ").strip()
 
@@ -109,24 +114,19 @@ try:
 
         #se activa el modo chat
         if "Conectado con un cliente" in msg_server: #se detecta que se inicia el chat con un cliente
-            print("\n ----- Chat iniciado ----- \nEscriba 'salir para terminar el chat.' \n")
-            hilo_receptor = threading.Thread(target=recibir_msg_chat, args=(ejecutivo,), daemon=True)
+            print("\n ----- Chat iniciado ----- \nEscriba ':disconnect' para terminar el chat. \n")
+            hilo_receptor = threading.Thread(target=recibir_msg_chat, args=(ejecutivo, nombre_ej), daemon=True)
             hilo_receptor.start()
 
             while True:
                 try:
-                    msg_ejecutivo = input(f"{nombre_ej}: ").strip()
+                    msg_ejecutivo = input(f"{nombre_ej}: ")
                     
                     if not msg_ejecutivo: #detector de mensaje en vacio (yo creo que se puede eliminar)
                         continue
 
-                    ejecutivo.send(msg_ejecutivo.encode()) #se envia mensaje del ejecutivo
-                    if msg_ejecutivo.lower() in ["salir", ":disconnect"]:
-                        
-                        break
-                    if msg_server.endswith("desconectado"):
-                        
-                        print("El cliente se ha desconectado del chat")
+                    ejecutivo.send(f"{msg_ejecutivo}".encode()) #se envia mensaje del ejecutivo
+                    if msg_ejecutivo.lower() == ":disconnect":
                         break
                 except Exception as e:
                     print(f"[ERROR] {e}")
