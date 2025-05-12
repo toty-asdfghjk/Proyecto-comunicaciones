@@ -107,3 +107,1168 @@ Solicitudes en espera: 0
 Ingrese una opción:
 [2025-05-11 06:44:32] [EJECUTIVO] :connect
 [2025-05-11 06:44:32] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (:disconnect para terminar)
+[2025-05-11 11:21:35] [INFO] Conectado al servidor.
+[2025-05-11 11:21:35] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 11:21:44] [EJECUTIVO] ariel@gmail.com
+[2025-05-11 11:21:44] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 11:22:07] [INFO] Conectado al servidor.
+[2025-05-11 11:22:07] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 11:22:15] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 11:22:15] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 11:22:16] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 11:22:16] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 0 clientes esperando.
+[2025-05-11 11:22:16] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
+[2025-05-11 11:22:28] [EJECUTIVO] :status
+[2025-05-11 11:22:28] [SERVIDOR] Clientes conectados: 1
+Solicitudes en espera: 1
+[2025-05-11 11:22:28] [SERVIDOR] Ingrese una opción:
+[2025-05-11 11:22:33] [EJECUTIVO] :connect
+[2025-05-11 11:22:33] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (:disconnect para terminar)
+[2025-05-11 11:40:10] [INFO] Conectado al servidor.
+[2025-05-11 11:40:10] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 11:40:18] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 11:40:18] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 11:40:19] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 11:40:19] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 0 clientes esperando.
+[2025-05-11 11:40:19] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
+[2025-05-11 11:41:13] [INFO] Conectado al servidor.
+[2025-05-11 11:41:13] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 11:41:18] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 11:41:18] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 11:41:19] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 11:41:19] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 0 clientes esperando.
+[2025-05-11 11:41:19] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
+[2025-05-11 11:43:09] [INFO] Conectado al servidor.
+[2025-05-11 11:43:09] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 11:43:15] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 11:43:15] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 11:43:16] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 11:43:16] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 0 clientes esperando.
+[2025-05-11 11:43:16] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
+[2025-05-11 11:44:24] [EJECUTIVO] :exit
+[2025-05-11 11:44:24] [SERVIDOR] Desconectando...
+[2025-05-11 11:44:24] [INFO] Ejecutivo desconectado.
+[2025-05-11 11:44:44] [INFO] Conectado al servidor.
+[2025-05-11 11:44:44] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 11:45:47] [INFO] Conectado al servidor.
+[2025-05-11 11:45:47] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 11:45:54] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 11:45:54] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 11:45:55] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 11:45:55] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 0 clientes esperando.
+[2025-05-11 11:45:55] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
+[2025-05-11 11:45:58] [EJECUTIVO] :status
+[2025-05-11 11:45:58] [SERVIDOR] Clientes conectados: 0
+Solicitudes en espera: 0
+[2025-05-11 11:45:58] [SERVIDOR] Ingrese una opción:
+[2025-05-11 11:46:00] [EJECUTIVO] :buy
+[2025-05-11 11:46:00] [SERVIDOR] No estás atendiendo a ningún cliente.
+[2025-05-11 11:46:00] [SERVIDOR] Ingrese una opción:
+[2025-05-11 11:46:33] [EJECUTIVO] :connect
+[2025-05-11 11:46:33] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (:disconnect para terminar)
+[2025-05-11 11:48:36] [INFO] Conectado al servidor.
+[2025-05-11 11:48:36] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 11:48:45] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 11:48:46] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 11:48:47] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 11:48:47] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 11:48:47] [SERVIDOR] Ingrese algún comando
+[2025-05-11 11:48:47] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 11:48:47] [SERVIDOR] Ingrese una opción:
+[2025-05-11 11:48:50] [EJECUTIVO] :connect
+[2025-05-11 11:48:50] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (:disconnect para terminar)
+[2025-05-11 12:08:15] [INFO] Conectado al servidor.
+[2025-05-11 12:08:15] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 12:08:17] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 12:08:17] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 12:08:18] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 12:08:18] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 0 clientes esperando.
+[2025-05-11 12:08:18] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
+[2025-05-11 12:08:38] [EJECUTIVO] :connect
+[2025-05-11 12:08:38] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 12:25:23] [INFO] Conectado al servidor.
+[2025-05-11 12:25:23] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 12:25:31] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 12:25:31] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 12:25:34] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 12:25:34] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 12:25:34] [SERVIDOR] Ingrese algún comando
+[2025-05-11 12:25:34] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 12:25:34] [SERVIDOR] Ingrese una opción:
+[2025-05-11 12:25:44] [EJECUTIVO] :connect
+[2025-05-11 12:25:44] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 12:28:08] [INFO] Conectado al servidor.
+[2025-05-11 12:28:08] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 12:28:12] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 12:28:12] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 12:28:13] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 12:28:13] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 0 clientes esperando.
+[2025-05-11 12:28:13] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
+[2025-05-11 12:31:16] [INFO] Conectado al servidor.
+[2025-05-11 12:31:16] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 12:31:45] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 12:31:45] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 12:31:46] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 12:31:46] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 12:31:46] [SERVIDOR] Ingrese algún comando
+[2025-05-11 12:31:46] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 12:31:46] [SERVIDOR] Ingrese una opción:
+[2025-05-11 12:31:54] [EJECUTIVO] :connect
+[2025-05-11 12:31:54] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 12:40:39] [INFO] Conectado al servidor.
+[2025-05-11 12:40:39] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 12:40:40] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 12:40:40] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 12:40:41] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 12:40:41] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 0 clientes esperando.
+[2025-05-11 12:40:41] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
+[2025-05-11 12:41:02] [EJECUTIVO] :connect
+[2025-05-11 12:41:02] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 12:47:11] [INFO] Conectado al servidor.
+[2025-05-11 12:47:11] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 12:47:18] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 12:47:18] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 12:47:19] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 12:47:19] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 12:47:19] [SERVIDOR] Ingrese algún comando
+[2025-05-11 12:47:19] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 12:47:19] [SERVIDOR] Ingrese una opción:
+[2025-05-11 12:47:22] [EJECUTIVO] :connect
+[2025-05-11 12:47:22] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 12:53:26] [INFO] Conectado al servidor.
+[2025-05-11 12:53:26] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 12:53:31] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 12:53:31] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 12:53:31] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 12:53:31] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 0 clientes esperando.
+[2025-05-11 12:53:31] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
+[2025-05-11 12:53:49] [EJECUTIVO] :connect
+[2025-05-11 12:53:49] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 12:53:56] [INFO] Ejecutivo desconectado.
+[2025-05-11 12:55:07] [INFO] Conectado al servidor.
+[2025-05-11 12:55:07] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 12:55:32] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 12:55:32] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 12:55:34] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 12:55:34] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 12:55:34] [SERVIDOR] Ingrese algún comando
+[2025-05-11 12:55:34] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 12:55:34] [SERVIDOR] Ingrese una opción:
+[2025-05-11 12:55:37] [EJECUTIVO] :status
+[2025-05-11 12:55:37] [SERVIDOR] Clientes conectados: 1
+Solicitudes en espera: 1
+[2025-05-11 12:55:37] [SERVIDOR] Ingrese una opción:
+[2025-05-11 12:55:40] [EJECUTIVO] :connect
+[2025-05-11 12:55:40] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 12:57:18] [INFO] Conectado al servidor.
+[2025-05-11 12:57:18] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 12:57:20] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 12:57:20] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 12:57:21] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 12:57:21] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 0 clientes esperando.
+[2025-05-11 12:57:21] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
+[2025-05-11 12:57:40] [EJECUTIVO] :connect
+[2025-05-11 12:57:40] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 12:59:20] [INFO] Conectado al servidor.
+[2025-05-11 12:59:20] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 12:59:27] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 12:59:27] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 12:59:29] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 12:59:29] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 12:59:29] [SERVIDOR] Ingrese algún comando
+[2025-05-11 12:59:29] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 12:59:29] [SERVIDOR] Ingrese una opción:
+[2025-05-11 12:59:32] [EJECUTIVO] :connect
+[2025-05-11 12:59:32] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 13:02:12] [INFO] Conectado al servidor.
+[2025-05-11 13:02:12] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 13:09:32] [INFO] Conectado al servidor.
+[2025-05-11 13:09:32] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 13:09:35] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 13:09:35] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 13:09:36] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 13:09:36] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 0 clientes esperando.
+[2025-05-11 13:09:36] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
+[2025-05-11 13:09:56] [EJECUTIVO] :connect
+[2025-05-11 13:09:56] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 13:10:54] [INFO] Conectado al servidor.
+[2025-05-11 13:10:54] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 13:11:03] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 13:11:03] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 13:11:06] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 13:11:06] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 13:11:06] [SERVIDOR] Ingrese algún comando
+[2025-05-11 13:11:06] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 13:11:06] [SERVIDOR] Ingrese una opción:
+[2025-05-11 13:11:09] [EJECUTIVO] :connect
+[2025-05-11 13:11:09] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 13:48:54] [INFO] Conectado al servidor.
+[2025-05-11 13:48:54] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 13:49:02] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 13:49:02] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 13:49:03] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 13:49:04] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 13:49:04] [SERVIDOR] Ingrese algún comando
+[2025-05-11 13:49:04] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 13:49:04] [SERVIDOR] Ingrese una opción:
+[2025-05-11 13:49:07] [EJECUTIVO] :connect
+[2025-05-11 13:49:07] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 13:50:28] [INFO] Conectado al servidor.
+[2025-05-11 13:50:28] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 13:50:30] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 13:50:30] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 13:50:31] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 13:50:31] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 0 clientes esperando.
+[2025-05-11 13:50:31] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
+[2025-05-11 13:50:51] [EJECUTIVO] :connect
+[2025-05-11 13:50:51] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 13:51:52] [INFO] Conectado al servidor.
+[2025-05-11 13:51:52] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 13:52:10] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 13:52:10] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 13:52:11] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 13:52:11] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 13:52:11] [SERVIDOR] Ingrese algún comando
+[2025-05-11 13:52:11] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 13:52:11] [SERVIDOR] Ingrese una opción:
+[2025-05-11 13:52:14] [EJECUTIVO] :connect
+[2025-05-11 13:52:14] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 13:55:33] [INFO] Conectado al servidor.
+[2025-05-11 13:55:33] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 13:55:34] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 13:55:34] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 13:55:36] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 13:55:36] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 0 clientes esperando.
+[2025-05-11 13:55:36] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
+[2025-05-11 13:56:01] [EJECUTIVO] :connect
+[2025-05-11 13:56:01] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 14:01:19] [INFO] Conectado al servidor.
+[2025-05-11 14:01:19] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 14:01:56] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 14:01:56] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 14:01:57] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 14:01:57] [SERVIDOR] Credenciales incorrectas. Desconectando...
+[2025-05-11 14:01:57] [INFO] Ejecutivo desconectado.
+[2025-05-11 14:02:03] [INFO] Conectado al servidor.
+[2025-05-11 14:02:03] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 14:02:05] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 14:02:05] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 14:02:07] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 14:02:07] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 14:02:07] [SERVIDOR] Ingrese algún comando
+[2025-05-11 14:02:07] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 14:02:07] [SERVIDOR] Ingrese una opción:
+[2025-05-11 14:02:10] [EJECUTIVO] :connect
+[2025-05-11 14:02:10] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 14:03:48] [INFO] Conectado al servidor.
+[2025-05-11 14:03:48] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 14:03:49] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 14:03:49] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 14:03:50] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 14:03:50] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 0 clientes esperando.
+[2025-05-11 14:03:50] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
+[2025-05-11 14:04:16] [EJECUTIVO] :connect
+[2025-05-11 14:04:16] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 14:05:04] [INFO] Conectado al servidor.
+[2025-05-11 14:05:04] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 14:05:11] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 14:05:11] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 14:05:12] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 14:05:12] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 14:05:12] [SERVIDOR] Ingrese algún comando
+[2025-05-11 14:05:12] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 14:05:12] [SERVIDOR] Ingrese una opción:
+[2025-05-11 14:05:16] [EJECUTIVO] :connect
+[2025-05-11 14:05:16] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 14:10:23] [INFO] Conectado al servidor.
+[2025-05-11 14:10:23] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 14:10:25] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 14:10:25] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 14:10:26] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 14:10:26] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 0 clientes esperando.
+[2025-05-11 14:10:26] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
+[2025-05-11 14:10:46] [EJECUTIVO] :connect
+[2025-05-11 14:10:46] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 14:19:17] [INFO] Conectado al servidor.
+[2025-05-11 14:19:17] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 14:19:42] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 14:19:42] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 14:19:43] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 14:19:43] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 14:19:43] [SERVIDOR] Ingrese algún comando
+[2025-05-11 14:19:43] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 14:19:43] [SERVIDOR] Ingrese una opción:
+[2025-05-11 14:19:48] [EJECUTIVO] :connect
+[2025-05-11 14:19:48] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 14:22:09] [INFO] Conectado al servidor.
+[2025-05-11 14:22:09] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 14:22:12] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 14:22:12] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 14:22:13] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 14:22:13] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 0 clientes esperando.
+[2025-05-11 14:22:13] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
+[2025-05-11 14:22:34] [EJECUTIVO] :connect
+[2025-05-11 14:22:34] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 14:31:42] [INFO] Conectado al servidor.
+[2025-05-11 14:31:42] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 14:32:05] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 14:32:05] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 14:32:07] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 14:32:07] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 14:32:07] [SERVIDOR] Ingrese algún comando
+[2025-05-11 14:32:07] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 14:32:07] [SERVIDOR] Ingrese una opción:
+[2025-05-11 14:32:10] [EJECUTIVO] :connect
+[2025-05-11 14:32:10] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 14:32:57] [SERVIDOR] Gonzalo Alegría: hola
+Gonzalo Alegría: hola
+Comando no reconocido o sin cliente conectado.
+[2025-05-11 14:32:57] [SERVIDOR] Desconectado del cliente.
+Ingrese una opción:
+[2025-05-11 16:59:47] [INFO] Conectado al servidor.
+[2025-05-11 16:59:48] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 16:59:54] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 16:59:54] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 16:59:56] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 16:59:56] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 16:59:56] [SERVIDOR] Ingrese algún comando
+[2025-05-11 16:59:56] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 16:59:56] [SERVIDOR] Ingrese una opción:
+[2025-05-11 17:00:00] [EJECUTIVO] :connect
+[2025-05-11 17:00:00] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 17:00:33] [SERVIDOR] Ariel Nuñez: hola
+Comando no reconocido o sin cliente conectado.
+[2025-05-11 17:00:33] [SERVIDOR] Desconectado del cliente.
+Ingrese una opción:
+[2025-05-11 17:08:06] [INFO] Conectado al servidor.
+[2025-05-11 17:08:06] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 17:08:07] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 17:08:07] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 17:08:09] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 17:08:09] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 0 clientes esperando.
+[2025-05-11 17:08:09] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
+[2025-05-11 17:08:29] [EJECUTIVO] :connect
+[2025-05-11 17:08:29] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 17:09:11] [INFO] Conectado al servidor.
+[2025-05-11 17:09:11] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 17:09:19] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 17:09:19] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 17:09:20] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 17:09:20] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 17:09:20] [SERVIDOR] Ingrese algún comando
+[2025-05-11 17:09:20] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 17:09:20] [SERVIDOR] Ingrese una opción:
+[2025-05-11 17:09:24] [EJECUTIVO] :connect
+[2025-05-11 17:09:24] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 17:10:02] [SERVIDOR] Ariel Nuñez: hola
+Comando no reconocido o sin cliente conectado.
+ Ariel Nuñez: hola?
+[2025-05-11 17:10:02] [SERVIDOR] Desconectado del cliente.
+Ingrese una opción:
+[2025-05-11 17:16:19] [INFO] Conectado al servidor.
+[2025-05-11 17:16:19] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 17:16:21] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 17:16:21] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 17:16:22] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 17:16:22] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 0 clientes esperando.
+[2025-05-11 17:16:22] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
+[2025-05-11 17:16:40] [EJECUTIVO] :connect
+[2025-05-11 17:16:41] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 17:16:54] [SERVIDOR] Ariel Nuñez: hola
+[2025-05-11 17:16:54] [SERVIDOR] Desconectado del cliente.
+Ingrese una opción:
+[2025-05-11 17:26:40] [INFO] Conectado al servidor.
+[2025-05-11 17:26:40] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 17:26:46] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 17:26:46] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 17:26:48] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 17:26:48] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 17:26:48] [SERVIDOR] Ingrese algún comando
+[2025-05-11 17:26:48] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 17:26:48] [SERVIDOR] Ingrese una opción:
+[2025-05-11 17:26:52] [EJECUTIVO] :connect
+[2025-05-11 17:26:52] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 17:27:36] [SERVIDOR] Ariel Nuñez: como estas?
+Comando no reconocido o sin cliente conectado.
+[2025-05-11 17:27:36] [SERVIDOR] Desconectado del cliente.
+Ingrese una opción:
+[2025-05-11 17:28:01] [EJECUTIVO] :connect
+[2025-05-11 17:28:01] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 17:28:24] [INFO] Conectado al servidor.
+[2025-05-11 17:28:24] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 17:28:26] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 17:28:26] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 17:28:28] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 17:28:28] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 0 clientes esperando.
+[2025-05-11 17:28:28] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
+[2025-05-11 17:28:48] [EJECUTIVO] :connect
+[2025-05-11 17:28:48] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 17:33:24] [INFO] Conectado al servidor.
+[2025-05-11 17:33:24] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 17:33:33] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 17:33:33] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 17:33:35] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 17:33:35] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 17:33:35] [SERVIDOR] Ingrese algún comando
+[2025-05-11 17:33:35] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 17:33:35] [SERVIDOR] Ingrese una opción:
+[2025-05-11 17:33:37] [EJECUTIVO] :connect
+[2025-05-11 17:33:37] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 17:35:44] [INFO] Conectado al servidor.
+[2025-05-11 17:35:44] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 17:35:54] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 17:35:54] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 17:35:55] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 17:35:55] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 17:35:55] [SERVIDOR] Ingrese algún comando
+[2025-05-11 17:35:55] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 17:35:55] [SERVIDOR] Ingrese una opción:
+[2025-05-11 17:35:58] [EJECUTIVO] :connect
+[2025-05-11 17:35:58] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 17:36:32] [SERVIDOR] Ariel Nuñez: hola
+[2025-05-11 17:36:32] [SERVIDOR] Desconectado del cliente.
+Ingrese una opción:
+[2025-05-11 17:54:42] [INFO] Conectado al servidor.
+[2025-05-11 17:54:42] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 17:54:44] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 17:54:44] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 17:54:46] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 17:54:46] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 0 clientes esperando.
+[2025-05-11 17:54:46] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
+[2025-05-11 17:55:08] [EJECUTIVO] :connect
+[2025-05-11 17:55:08] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 17:55:57] [INFO] Conectado al servidor.
+[2025-05-11 17:55:57] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 17:56:00] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 17:56:00] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 17:56:01] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 17:56:01] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 17:56:01] [SERVIDOR] Ingrese algún comando
+[2025-05-11 17:56:01] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 17:56:01] [SERVIDOR] Ingrese una opción:
+[2025-05-11 17:56:04] [EJECUTIVO] :connect
+[2025-05-11 17:56:04] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 18:12:11] [INFO] Conectado al servidor.
+[2025-05-11 18:12:11] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 18:12:19] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 18:12:19] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 18:12:21] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 18:12:21] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 18:12:21] [SERVIDOR] Ingrese algún comando
+[2025-05-11 18:12:21] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 18:12:21] [SERVIDOR] Ingrese una opción:
+[2025-05-11 18:12:25] [EJECUTIVO] :connect
+[2025-05-11 18:12:25] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 19:03:24] [INFO] Conectado al servidor.
+[2025-05-11 19:03:25] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 19:03:32] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 19:03:32] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 19:03:33] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 19:03:33] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 19:03:33] [SERVIDOR] Ingrese algún comando
+[2025-05-11 19:03:33] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 19:03:33] [SERVIDOR] Ingrese una opción:
+[2025-05-11 19:03:37] [EJECUTIVO] :connect
+[2025-05-11 19:03:37] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 19:08:24] [INFO] Conectado al servidor.
+[2025-05-11 19:08:24] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 19:08:29] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 19:08:29] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 19:08:30] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 19:08:30] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 0 clientes esperando.
+[2025-05-11 19:08:30] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
+[2025-05-11 19:09:00] [EJECUTIVO] :connect
+[2025-05-11 19:09:00] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 19:23:44] [INFO] Conectado al servidor.
+[2025-05-11 19:23:44] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 19:23:50] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 19:23:50] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 19:23:52] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 19:23:52] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 19:23:52] [SERVIDOR] Ingrese algún comando
+[2025-05-11 19:23:52] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 19:23:52] [SERVIDOR] Ingrese una opción:
+[2025-05-11 19:23:54] [EJECUTIVO] :connect
+[2025-05-11 19:23:54] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 19:25:24] [INFO] Conectado al servidor.
+[2025-05-11 19:25:24] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 19:25:25] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 19:25:25] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 19:25:27] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 19:25:27] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 0 clientes esperando.
+[2025-05-11 19:25:27] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
+[2025-05-11 19:25:45] [EJECUTIVO] :connect
+[2025-05-11 19:25:45] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 19:37:46] [INFO] Conectado al servidor.
+[2025-05-11 19:37:46] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 19:37:57] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 19:37:57] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 19:37:58] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 19:37:58] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 19:37:58] [SERVIDOR] Ingrese algún comando
+[2025-05-11 19:37:58] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 19:37:58] [SERVIDOR] Ingrese una opción:
+[2025-05-11 19:38:02] [EJECUTIVO] :connect
+[2025-05-11 19:38:02] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 19:44:21] [INFO] Conectado al servidor.
+[2025-05-11 19:44:21] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 19:44:28] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 19:44:28] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 19:44:31] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 19:44:31] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 19:44:31] [SERVIDOR] Ingrese algún comando
+[2025-05-11 19:44:31] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 19:44:31] [SERVIDOR] Ingrese una opción:
+[2025-05-11 19:44:36] [EJECUTIVO] :connect
+[2025-05-11 19:44:36] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 20:01:38] [INFO] Conectado al servidor.
+[2025-05-11 20:01:38] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 20:01:44] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 20:01:44] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 20:01:47] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 20:01:47] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 20:01:47] [SERVIDOR] Ingrese algún comando
+[2025-05-11 20:01:47] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 20:01:47] [SERVIDOR] Ingrese una opción:
+[2025-05-11 20:01:50] [EJECUTIVO] :connect
+[2025-05-11 20:01:50] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 20:04:04] [INFO] Conectado al servidor.
+[2025-05-11 20:04:04] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 20:04:06] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 20:04:06] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 20:04:07] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 20:04:07] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 0 clientes esperando.
+[2025-05-11 20:04:07] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
+[2025-05-11 20:04:31] [EJECUTIVO] :connect
+[2025-05-11 20:04:31] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 20:05:52] [INFO] Conectado al servidor.
+[2025-05-11 20:05:52] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 20:06:02] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 20:06:02] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 20:06:03] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 20:06:03] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 20:06:03] [SERVIDOR] Ingrese algún comando
+[2025-05-11 20:06:03] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 20:06:03] [SERVIDOR] Ingrese una opción:
+[2025-05-11 20:06:06] [EJECUTIVO] :connect
+[2025-05-11 20:06:06] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 20:35:42] [INFO] Conectado al servidor.
+[2025-05-11 20:35:42] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 20:35:49] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 20:35:49] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 20:35:50] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 20:35:50] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 1 clientes esperando.
+[2025-05-11 20:35:50] [SERVIDOR] Ingrese algún comando
+[2025-05-11 20:35:50] [SERVIDOR] [:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+[2025-05-11 20:35:50] [SERVIDOR] Ingrese una opción:
+[2025-05-11 20:35:54] [EJECUTIVO] :connect
+[2025-05-11 20:35:54] [SERVIDOR] Conectado con un cliente. Puede comenzar a chatear. (':disconnect' para terminar)
+[2025-05-11 20:37:18] [SERVIDOR] No hay cliente conectado actualmente.
+[2025-05-11 20:37:18] [SERVIDOR] 
+[2025-05-11 20:39:35] [INFO] Conectado al servidor.
+[2025-05-11 20:39:35] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 20:39:41] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 20:39:41] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 20:39:43] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 20:39:43] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 0 clientes esperando.
+[2025-05-11 20:39:43] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
+[2025-05-11 20:39:45] [EJECUTIVO] :status
+[2025-05-11 20:39:45] [SERVIDOR] Clientes conectados: 0
+Solicitudes en espera: 0
+[2025-05-11 20:39:45] [SERVIDOR] Ingrese una opción:
+[2025-05-11 20:40:01] [EJECUTIVO] :catalogue
+[2025-05-11 20:40:01] [SERVIDOR] 1: Mewtwo - $299.99 - stock[x4]
+2: Pikachu - $65.0 - stock[x4]
+3: Mew - $77.5 - stock[x5]
+4: Eevee - $15.75 - stock[x3]
+[2025-05-11 20:40:01] [SERVIDOR] Ingrese una opción:
+[2025-05-11 20:40:31] [EJECUTIVO] :publish Pikachu 55
+[2025-05-11 20:40:31] [SERVIDOR] Producto Pikachu publicado con precio $55.
+[2025-05-11 20:40:31] [SERVIDOR] Ingrese una opción:
+[2025-05-11 20:40:52] [EJECUTIVO] :publish Giratina 133.3
+[2025-05-11 20:40:52] [SERVIDOR] Giratina publicada por $133.3.
+[2025-05-11 20:40:52] [SERVIDOR] Ingrese una opción:
+[2025-05-11 20:41:09] [EJECUTIVO] :exit
+[2025-05-11 20:41:09] [SERVIDOR] Desconectando...
+[2025-05-11 20:41:09] [INFO] Ejecutivo desconectado.
+[2025-05-11 20:41:13] [INFO] Conectado al servidor.
+[2025-05-11 20:41:13] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 20:41:15] [EJECUTIVO] vincko@gmail.com
+[2025-05-11 20:41:15] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 20:41:17] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 20:41:17] [SERVIDOR] Asistente: Hola Vincko Fabres. Hay 0 clientes esperando.
+[2025-05-11 20:41:17] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
