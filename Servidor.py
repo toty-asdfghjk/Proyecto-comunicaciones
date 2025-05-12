@@ -244,27 +244,28 @@ def manejar_usuario(conn, direccion):
                         conn.send(f"Productos disponibles:\n{lista}\nSeleccione ID del producto: ".encode())
                         pid = conn.recv(1024).decode().strip() #se obtiene el ID del producto del usuario
                             
-                        if pid in productos and productos[pid]["stock"] > 0: #se verifica si el producto tiene stock
-                            producto = productos[pid] #se guarda ID del producto
-                            producto["stock"] -= 1 #disminuir en una unidad el stock diponible de la carta
-                            fecha = datetime.now().strftime("%d/%m/%Y %H:%M")#se guarda fecha de la accion
-                            nombre_producto = productos[pid]["nombre"] #se guarda nombre del producto
-                            precio = productos[pid]["precio"] #se guarda precio del producto
-                            registro = f" Compró {nombre_producto} ID:{pid} por ${precio} ({fecha}) " #accion hecha por el cliente
-                            dataBase["clientes"][correo].setdefault("acciones", []).append(registro) #se registra accion del cliente
-                            guardar_base_datos() #se actualiza la base de datos
-                            dataBase["clientes"][correo].setdefault("compras", []).append(registro) #se registra en el historial del cliente la compra realizada
-                            guardar_base_datos() #se actualiza la base de datos
-                            print(f"Cliente {nombre_cl} compró exitosamente {nombre_producto} ID {pid} .")
-                            carta_exist = False #detector de existencia de la carta en la cuenta del usuario
-                            articulos = dataBase["clientes"][correo].get("items",{}) #se obtiene el catalogo
-                            for pid, info in articulos.items(): #se recorre la lista de items
-                                if info["nombre"].lower() == nombre_producto.lower(): #se verifica si la carta esta en el catalogo
-                                    info["unidades"] += 1 #se suma 1 al stock
-                                    conn.send("Compra realizada exitosamente.\n".encode())
-                                    carta_exist = True #la carta fue detectada en el catalogo
-                                    guardar_base_datos() #se actualiza la base de datos
-                                    break
+                        if pid in productos:
+                            if productos[pid]["stock"] > 0: #se verifica si el producto tiene stock
+                                producto = productos[pid] #se guarda ID del producto
+                                producto["stock"] -= 1 #disminuir en una unidad el stock diponible de la carta
+                                fecha = datetime.now().strftime("%d/%m/%Y %H:%M")#se guarda fecha de la accion
+                                nombre_producto = productos[pid]["nombre"] #se guarda nombre del producto
+                                precio = productos[pid]["precio"] #se guarda precio del producto
+                                registro = f" Compró {nombre_producto} ID:{pid} por ${precio} ({fecha}) " #accion hecha por el cliente
+                                dataBase["clientes"][correo].setdefault("acciones", []).append(registro) #se registra accion del cliente
+                                guardar_base_datos() #se actualiza la base de datos
+                                dataBase["clientes"][correo].setdefault("compras", []).append(registro) #se registra en el historial del cliente la compra realizada
+                                guardar_base_datos() #se actualiza la base de datos
+                                print(f"Cliente {nombre_cl} compró exitosamente {nombre_producto} ID {pid} .")
+                                carta_exist = False #detector de existencia de la carta en la cuenta del usuario
+                                articulos = dataBase["clientes"][correo].get("items",{}) #se obtiene el catalogo
+                                for pid, info in articulos.items(): #se recorre la lista de items
+                                    if info["nombre"].lower() == nombre_producto.lower(): #se verifica si la carta esta en el catalogo
+                                        info["unidades"] += 1 #se suma 1 al stock
+                                        conn.send("Compra realizada exitosamente.\n".encode())
+                                        carta_exist = True #la carta fue detectada en el catalogo
+                                        guardar_base_datos() #se actualiza la base de datos
+                                        break
                             if not carta_exist: #la carta no existe en el catalogo
                                 pid = str(len(dataBase["clientes"][correo]["items"]) + 1) #se crea codigo del item
                                 dataBase["clientes"][correo]["items"][pid] = {"unidades": 1, "nombre": carta} #se crea el producto y se incluye al catalogo

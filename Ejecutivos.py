@@ -72,6 +72,7 @@ try:
 
         imprimir_separador()
 
+        ### Prints auxiliares (para mayor estetica) ###
         if "Historial" in msg_server or "Compras" in msg_server:
             for i, linea in enumerate(msg_server.splitlines(), 1):
                 print(f"{linea}")
@@ -91,7 +92,8 @@ try:
         if "Desconectando" in msg_server or "Gracias por usar" in msg_server:
             break
         
-        if msg_server.endswith(":") or msg_server.endswith("\n") or msg_server == "\u200A":
+        ### Prints habilitadores de input ###
+        if msg_server.endswith(":") or msg_server.endswith("\n") or msg_server == "\u200A": #se habilita input
             while True:
                 msg_ejecutivo = input(">> ").strip()
 

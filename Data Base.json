@@ -74,22 +74,42 @@
             }
         },
         "Mauricio@gmail.com": {
-            "pass": "hola",
+            "pass": "0208",
             "nombre": "Mauricio Silva",
             "historial": [],
             "acciones": [
-                " Compró Mewtwo ID:1 por $299.99 (11/05/2025 05:24) "
+                " Compró Mewtwo ID:1 por $299.99 (11/05/2025 05:24) ",
+                "Cambió su contraseña (11/05/2025 22:24)",
+                "Consultó su historial de compras (11/05/2025 22:24)",
+                "Consultó el catálogo de productos (11/05/2025 22:24)",
+                " Compró Rayquaza ID:6 por $177.5 (11/05/2025 22:24) ",
+                "Solicitó devolución del producto ID  3 con motivo: lo pille mas barato (11/05/2025 22:26)",
+                "Solicitó devolución del producto ID  2 con motivo: lo pille mas barato (11/05/2025 22:26)",
+                "Consultó el catálogo de productos (11/05/2025 22:27)",
+                " Compró Caterpie ID:8 por $7.5 (11/05/2025 22:27) ",
+                "Consultó el catálogo de productos (11/05/2025 22:29)",
+                " Compró Mew ID:3 por $77.5 (11/05/2025 22:29) ",
+                "Consultó el catálogo de productos (11/05/2025 22:29)",
+                " Compró Rayquaza ID:6 por $177.5 (11/05/2025 22:29) ",
+                "Consultó el catálogo de productos (11/05/2025 22:34)",
+                " Compró Giratina ID:5 por $133.3 (11/05/2025 22:34) ",
+                "Confirmó envío de producto (11/05/2025 22:35)"
             ],
             "compras": [
-                " Compró Mewtwo ID:1 por $299.99 (11/05/2025 05:24) "
+                " Compró Mewtwo ID:1 por $299.99 (11/05/2025 05:24) ",
+                " Compró Rayquaza ID:6 por $177.5 (11/05/2025 22:24) ",
+                " Compró Caterpie ID:8 por $7.5 (11/05/2025 22:27) ",
+                " Compró Mew ID:3 por $77.5 (11/05/2025 22:29) ",
+                " Compró Rayquaza ID:6 por $177.5 (11/05/2025 22:29) ",
+                " Compró Giratina ID:5 por $133.3 (11/05/2025 22:34) "
             ],
             "items": {
                 "1": {
-                    "unidades": 1,
+                    "unidades": 2,
                     "nombre": "Mewtwo"
                 },
                 "2": {
-                    "unidades": 2,
+                    "unidades": 4,
                     "nombre": "Pikachu"
                 },
                 "3": {
@@ -97,7 +117,7 @@
                     "nombre": "Mew"
                 },
                 "4": {
-                    "unidades": 1,
+                    "unidades": 3,
                     "nombre": "Giratina"
                 }
             }
@@ -125,7 +145,7 @@
                     "nombre": "Pikachu"
                 },
                 "3": {
-                    "unidades": 1,
+                    "unidades": 2,
                     "nombre": "Moltres"
                 }
             }
@@ -140,7 +160,6 @@
             ],
             "compras": [
                 "Compró Pikachu por $59.99 (09/05/2025 04:15)"
-
             ],
             "items": {
                 "1": {
@@ -167,7 +186,6 @@
             ],
             "compras": [
                 "Compró Charmander por $69.99 (09/05/2025 04:15)"
-
             ],
             "items": {
                 "1": {
@@ -194,7 +212,6 @@
             ],
             "compras": [
                 "Compró Garchomp por $99.99 (11/05/2025 22:15)"
-
             ],
             "items": {
                 "1": {
@@ -228,44 +245,29 @@
     },
     "productos": {
         "1": {
-            "stock": 2,
+            "stock": 12,
             "nombre": "Mewtwo",
             "precio": 299.99
         },
         "2": {
-            "stock": 5,
+            "stock": 46,
             "nombre": "Pikachu",
             "precio": 55.0
         },
         "3": {
-            "stock": 5,
+            "stock": 25,
             "nombre": "Mew",
             "precio": 77.5
         },
         "4": {
-            "stock": 3,
+            "stock": 113,
             "nombre": "Eevee",
             "precio": 15.75
         },
         "5": {
-            "stock": 1,
+            "stock": 32,
             "nombre": "Giratina",
             "precio": 133.3
-        },
-        "6": {
-            "stock": 3,
-            "nombre": "Rayquaza",
-            "precio": 177.5
-        },
-        "7": {
-            "stock": 7,
-            "nombre": "Geodude",
-            "precio": 15.0
-        },
-        "8": {
-            "stock": 10,
-            "nombre": "Caterpie",
-            "precio": 7.5
         }
     }
 }

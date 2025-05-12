@@ -69,6 +69,7 @@ try:
 
         imprimir_separador()
 
+        ### Prints auxiliares ###
         if "Historial" in msg_server or "Compras" in msg_server:
             for i, linea in enumerate(msg_server.splitlines(), 1):
                 print(f"{linea}")
@@ -88,6 +89,7 @@ try:
         if "Desconectando" in msg_server or "Gracias por usar" in msg_server:
             break
 
+        ### Prints habilitadores de input ###
         if msg_server.endswith(":") or msg_server.endswith("número:") or msg_server.endswith("otra vez:") or msg_server.endswith("desea:"):
             while True:
                 msg_cliente = input(">> ").strip()

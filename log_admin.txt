@@ -1272,3 +1272,39 @@ Solicitudes en espera: 0
 [:disconnect] Terminar conexión con cliente
 [:exit] Salir
 Ingrese una opción:
+[2025-05-11 22:23:39] [INFO] Conectado al servidor.
+[2025-05-11 22:23:39] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 22:39:17] [INFO] Conectado al servidor.
+[2025-05-11 22:39:17] [SERVIDOR] ¡Bienvenido a la tienda TC5G!
+ Por favor ingrese su correo:
+[2025-05-11 22:39:27] [EJECUTIVO] profesor@gmail.com
+[2025-05-11 22:39:27] [SERVIDOR] Ingrese su contraseña:
+[2025-05-11 22:39:28] [EJECUTIVO] Se ingresó una contraseña (oculta por seguridad).
+[2025-05-11 22:39:28] [SERVIDOR] Asistente: Hola Profesor Oak. Hay 0 clientes esperando.
+[2025-05-11 22:39:28] [SERVIDOR] Ingrese algún comando
+[:status] Consultar solicitudes
+[:connect] Conectarse con uncliente en espera
+[:details] Consultar última acción de clientes áctivos
+[:history] Revisar historial del cliente
+[:operations] Mostrar historial de operaciones al cliente
+[:catalogue] Consultar catálogo disponible
+[:buy] Comprar carta al cliente [carta, precio]
+[:publish] Publicar una carta a la venta (en caso de no estar catalogada indicar precio)
+[:disconnect] Terminar conexión con cliente
+[:exit] Salir
+Ingrese una opción:
+[2025-05-11 22:39:36] [EJECUTIVO] :status
+[2025-05-11 22:39:36] [SERVIDOR] Clientes conectados: 0
+Solicitudes en espera: 0
+[2025-05-11 22:39:36] [SERVIDOR] Ingrese una opción:
+[2025-05-11 22:39:54] [EJECUTIVO] :catalogue
+[2025-05-11 22:39:54] [SERVIDOR] 1: Mewtwo - $299.99 - stock[x2]
+2: Pikachu - $55.0 - stock[x6]
+3: Mew - $77.5 - stock[x5]
+4: Eevee - $15.75 - stock[x13]
+5: Giratina - $133.3 - stock[x2]
+[2025-05-11 22:39:54] [SERVIDOR] Ingrese una opción:
+[2025-05-11 22:40:16] [EJECUTIVO] :exit
+[2025-05-11 22:40:16] [SERVIDOR] Desconectando...
+[2025-05-11 22:40:16] [INFO] Ejecutivo desconectado.
